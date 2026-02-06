@@ -11,10 +11,10 @@
 ## UI Samples
 
 | Project | Preview |
-|--------|---------|
-| Login Page | 이미지 |
-| Dashboard | 이미지 |
-| Todo UI | 이미지 |
+|----------|----------|
+| Login Page | [![](assets/img/previews/login-v1.png)](samples/auth/login-v1.html) |
+| Dashboard | (준비중) |
+| Todo UI | (준비중) |
 
 ## 특징
 - 반응형 레이아웃
