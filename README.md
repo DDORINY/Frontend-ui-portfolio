@@ -1,11 +1,11 @@
-# 🎨 Frontend UI Portfolio
+# Frontend UI Portfolio
 
 프론트엔드 레이아웃 및 UI 디자인 실습 + 재사용 가능한 컴포넌트 설계를 목표로 한 UI 포트폴리오 저장소입니다.  
 Bootstrap 기반으로 다양한 화면을 버전 단위로 제작하고, 이후 UI Kit 형태로 컴포넌트를 분리합니다.
 
 ---
 
-## 🚀 Goals
+## Goals
 
 - 다양한 화면 UI 디자인 실습
 - 페이지 단위 샘플 축적 (v1 / v2 / v3 버전 실험)
@@ -15,7 +15,7 @@ Bootstrap 기반으로 다양한 화면을 버전 단위로 제작하고, 이후
 
 ---
 
-## 🧱 Tech Stack
+## Tech Stack
 
 - HTML5
 - CSS3
@@ -25,7 +25,7 @@ Bootstrap 기반으로 다양한 화면을 버전 단위로 제작하고, 이후
 
 ---
 
-## 🖼 UI Samples
+## UI Samples
 
 | Project | Preview |
 |----------|----------|
@@ -39,7 +39,7 @@ Bootstrap 기반으로 다양한 화면을 버전 단위로 제작하고, 이후
 
 ---
 
-## ✨ Design Features
+## Design Features
 
 - 반응형 레이아웃
 - Bootstrap Grid 시스템 활용
@@ -50,13 +50,13 @@ Bootstrap 기반으로 다양한 화면을 버전 단위로 제작하고, 이후
 
 ---
 
-## 🧩 UI Architecture
+## UI Architecture
 
 이 저장소는 **결과물(Samples)** 과 **재사용 컴포넌트(UI Kit)** 를 분리하여 구성합니다.
 
 
 
-## repositories 구성
+## Repository Structure
 ```
 frontend-ui-portfolio/
 ├─ index.html # UI Samples 허브 페이지
@@ -90,3 +90,43 @@ frontend-ui-portfolio/
 └─ patterns/
 
 ```
+
+---
+
+## Design Strategy
+
+Samples → Patterns → Components 단계로 확장합니다.
+
+1. 페이지 단위 UI 제작
+2. 반복되는 블록 패턴 추출
+3. 재사용 가능한 컴포넌트로 분리
+4. UI Kit 구조화
+
+---
+
+## Naming Convention
+
+- 페이지 샘플: login-v1.html, dashboard-v2.html
+- 미리보기 이미지: login-v1.png
+- 컴포넌트 클래스: ui-card, ui-btn, ui-input
+
+---
+
+## Roadmap
+
+- Login UI v1 완료
+- Login UI v2 / v3 예정
+- Dashboard UI
+- Todo UI
+- Board UI
+- Shop UI
+- UI Kit 컴포넌트 분리
+- Design Token 시스템 정리
+
+---
+
+## Author
+
+DDORINY  
+Frontend UI Layout and Component Design Practice
+
