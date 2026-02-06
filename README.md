@@ -26,16 +26,26 @@ Bootstrap 기반으로 다양한 화면을 버전 단위로 제작하고, 이후
 ---
 
 ## UI Samples
-
-| Project | Preview |
-|----------|----------|
-| Login Page v1 | [![](assets/img/previews/login-v1.png)](samples/auth/login-v1.html) |
-| Dashboard | 준비중 |
-| Todo UI | 준비중 |
-| Board UI | 준비중 |
-| Shop UI | 준비중 |
-
 > 썸네일 클릭 시 실제 UI 페이지로 이동합니다.
+
+### Login Page v1 
+[![](assets/img/previews/login-v1.png)](samples/auth/login-v1.html) 
+
+---
+### Dashboard  
+준비중 
+
+---
+### Todo UI  
+준비중 
+
+---
+### Board UI 
+준비중 
+
+---
+### Shop UI 
+준비중 
 
 ---
 
