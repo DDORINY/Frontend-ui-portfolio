@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Frontend UI Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <style>
+    .ui-swiper { padding: 8px 4px 34px; position: relative; }
+
+    .ui-card{
+      display:block;
+      text-decoration:none;
+      color: inherit;
+      background:#fff;
+      border-radius: 14px;
+      overflow:hidden;
+      box-shadow: 0 10px 24px rgba(0,0,0,.10);
+      border: 1px solid rgba(0,0,0,.06);
+    }
+    .ui-card img{
+      width:100%;
+      height:160px;
+      object-fit: cover;
+      display:block;
+    }
+    .ui-card-body{ padding: 12px 14px; }
+    .ui-title{ font-weight: 700; }
+    .ui-desc{ font-size:.9rem; color:#6c757d; }
+
+    /* Swiper pagination 위치 */
+    .ui-swiper .swiper-pagination{ bottom: 0 !important; }
+
+    /* Swiper 좌우 버튼 스타일(bootstrap 느낌) */
+    .ui-swiper .swiper-button-prev,
+    .ui-swiper .swiper-button-next{
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 10px 24px rgba(0,0,0,.10);
+      border: 1px solid rgba(0,0,0,.06);
+    }
+    .ui-swiper .swiper-button-prev::after,
+    .ui-swiper .swiper-button-next::after{
+      font-size: 16px;
+      font-weight: 700;
+      color: #111;
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+  <div class="container py-5">
+
+    <!-- 헤더 -->
+    <div class="mb-5 text-center">
+      <h1 class="fw-bold">Frontend UI Portfolio</h1>
+      <p class="text-muted">Bootstrap 기반 UI 레이아웃 및 컴포넌트 설계 실습 모음</p>
+    </div>
+
+    <!-- UI Samples -->
+    <h3 class="mb-3">UI Samples</h3>
+
+    <div class="swiper ui-swiper">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <a href="samples/auth/login-v1.html" class="ui-card">
+            <img src="assets/img/previews/login-v1.png" alt="Login v1 preview" loading="lazy">
+            <div class="ui-card-body">
+              <div class="ui-title">Login v1</div>
+              <div class="ui-desc">Glass + Neon Login UI</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide">
+          <a href="samples/auth/signup-v1.html" class="ui-card">
+            <img src="assets/img/previews/signup-v1.png" alt="Signup v1 preview" loading="lazy">
+            <div class="ui-card-body">
+              <div class="ui-title">Signup v1</div>
+              <div class="ui-desc">Account Register UI</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide">
+          <a href="samples/dashboard/dashboard-v1.html" class="ui-card">
+            <img src="assets/img/previews/dashboard-v1.png" alt="Dashboard v1 preview" loading="lazy">
+            <div class="ui-card-body">
+              <div class="ui-title">Dashboard v1</div>
+              <div class="ui-desc">Admin Dashboard UI</div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Swiper 전용 컨트롤 -->
+      <div class="swiper-button-prev" aria-label="Previous"></div>
+      <div class="swiper-button-next" aria-label="Next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- UI Kit -->
+    <hr class="my-5">
+
+    <h3>UI Kit</h3>
+    <p class="text-muted">재사용 가능한 UI 컴포넌트 모음</p>
+    <a href="ui-kit/index.html" class="btn btn-dark">UI Kit 문서 보기</a>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper(".ui-swiper", {
+      loop: true,
+      speed: 600,
+      spaceBetween: 18,
+      autoplay: {
+        delay: 2200,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: ".ui-swiper .swiper-pagination",
+        clickable: true
+      },
+      navigation: {
+        nextEl: ".ui-swiper .swiper-button-next",
+        prevEl: ".ui-swiper .swiper-button-prev"
+      },
+      breakpoints: {
+        0:   { slidesPerView: 1.15 },
+        576: { slidesPerView: 2.05 },
+        992: { slidesPerView: 3.05 }
+      }
+    });
+
+    // (선택) 마우스 올리면 자동 슬라이드 멈춤
+    const el = document.querySelector(".ui-swiper");
+    el.addEventListener("mouseenter", () => swiper.autoplay.stop());
+    el.addEventListener("mouseleave", () => swiper.autoplay.start());
+  </script>
+</body>
+</html>
