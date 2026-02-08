@@ -58,7 +58,9 @@ Bootstrap 기반 화면 레이아웃 및 UI 컴포넌트 설계 실습 저장소
 
 ### Dashboard
 
-준비중
+| Dashboard |
+|--------|
+|[![](assets/img/previews/dashboard-v1.png)](samples/dashboard/dashboard-v1.html)|
 
 ---
 
