@@ -121,9 +121,6 @@ frontend-ui-portfolio/
 │
 ├─ samples/
 │ ├─ auth/
-│ │ ├─ login-v1.html
-│ │ ├─ login-v2.html
-│ │ └─ register-v1.html
 │ ├─ dashboard/
 │ ├─ todo/
 │ ├─ board/
