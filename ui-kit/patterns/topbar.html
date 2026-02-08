@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kanban Board - DDORINY UI Kit</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- ✅ Design System -->
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+
+  <!-- ✅ Pattern styles (kanban/sidebar/topbar/card 등) -->
+  <link rel="stylesheet" href="../../assets/css/pages/dashboard.css">
+
+  <style>
+    /* UI Kit doc shell */
+    .kit-shell{ max-width: 1200px; margin: 0 auto; }
+    .kit-card{
+      background:#fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+    pre{
+      background:#0f172a;
+      color:#e5e7eb;
+      padding:14px;
+      border-radius:12px;
+      font-size:.85rem;
+      overflow:auto;
+      margin: 0;
+    }
+    .code-wrap{ border-top:1px solid rgba(15,23,42,.06); margin-top:14px; padding-top:14px; }
+    .hint{ color: var(--muted); font-size:.92rem; }
+
+    /* 문서 페이지에서 칸반만 예쁘게 보이게: dashboard-v1의 전체 app/grid는 사용 안 함 */
+    .pattern-wrap{
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+<div class="container py-5 kit-shell">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-start mb-4">
+    <div>
+      <h1 class="fw-bold mb-1">Patterns · Kanban Board</h1>
+      <div class="text-muted">칸반 보드 섹션(헤더 + 보드 컬럼 + 카드)을 패턴으로 문서화</div>
+    </div>
+
+    <div class="d-flex gap-2">
+      <a class="btn btn-outline-secondary rounded-pill" href="../index.html">UI Kit Home</a>
+      <a class="btn btn-outline-secondary rounded-pill" href="../../index.html">Portfolio</a>
+    </div>
+  </div>
+
+  <!-- 설명 -->
+  <section class="kit-card p-4 mb-4">
+    <h5 class="fw-bold mb-2">Pattern Scope</h5>
+    <div class="hint">
+      이 페이지는 “대시보드 전체(app grid)”가 아니라,
+      <b>프로젝트 헤더 + 칸반 보드</b>만 뽑아서 패턴화한 문서입니다. <br>
+      실제 dashboard-v1에서는 이 패턴 위/아래에 통계/테이블/차트 같은 섹션을 더 붙일 수 있어요.
+    </div>
+
+    <div class="code-wrap">
+      <div class="fw-bold mb-2">Used classes</div>
+      <div class="hint">
+        <code>.project-header</code>, <code>.pill</code>, <code>.btn-accent</code>, <code>.mini-avatars</code>,
+        <code>.board</code>, <code>.column</code>, <code>.card-task</code>, <code>.dot.*</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preview -->
+  <section class="pattern-wrap" aria-label="Kanban pattern preview">
+
+    <!-- Project header (pattern) -->
+    <div class="project-header">
+      <div>
+        <h2 class="m-0">UI Portfolio Build</h2>
+        <div class="project-meta">Frontend UI samples + UI Kit documentation</div>
+      </div>
+
+      <div class="d-flex align-items-center gap-2 flex-wrap justify-content-end">
+        <span class="pill"><i class="bi bi-calendar-event"></i> Due: Feb 28</span>
+
+        <div class="mini-avatars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+
+        <button class="btn btn-accent">
+          <i class="bi bi-plus-lg me-1"></i> Create new ticket
+        </button>
+      </div>
+    </div>
+
+    <!-- Kanban board -->
+    <section class="board mt-3" aria-label="Kanban board">
+
+      <!-- Backlog -->
+      <div class="column">
+        <div class="col-head">
+          <div class="col-title">Backlog</div>
+          <button class="icon-btn" style="width:34px;height:34px" aria-label="Add">
+            <i class="bi bi-plus"></i>
+          </button>
+        </div>
+
+        <article class="card-task">
+          <div class="task-top">
+            <div>
+              <p class="task-name">Write UI Kit pages</p>
+              <p class="task-desc">Docs • tokens / buttons / cards</p>
+            </div>
+            <span class="dot yellow" aria-hidden="true"></span>
+          </div>
+          <div class="task-foot">
+            <span><i class="bi bi-calendar2 me-1"></i> 02/10</span>
+            <span><i class="bi bi-list-check me-1"></i> 3 subtasks</span>
+          </div>
+        </article>
+
+        <article class="card-task">
+          <div class="task-top">
+            <div>
+              <p class="task-name">Add preview images</p>
+              <p class="task-desc">UI • assets/img/previews</p>
+            </div>
+            <span class="dot blue" aria-hidden="true"></span>
+          </div>
+          <div class="task-foot">
+            <span><i class="bi bi-calendar2 me-1"></i> 02/12</span>
+            <span><i class="bi bi-list-check me-1"></i> 2 subtasks</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- In Progress -->
+      <div class="column">
+        <div class="col-head">
+          <div class="col-title">In Progress</div>
+          <button class="icon-btn" style="width:34px;height:34px" aria-label="Add">
+            <i class="bi bi-plus"></i>
+          </button>
+        </div>
+
+        <article class="card-task">
+          <div class="task-top">
+            <div>
+              <p class="task-name">Dashboard v1 layout</p>
+              <p class="task-desc">Layout • sidebar/topbar/board</p>
+            </div>
+            <span class="dot green" aria-hidden="true"></span>
+          </div>
+          <div class="task-foot">
+            <span><i class="bi bi-calendar2 me-1"></i> 02/15</span>
+            <span class="mini-avatars" aria-hidden="true"><span></span><span></span></span>
+          </div>
+        </article>
+
+        <article class="card-task">
+          <div class="task-top">
+            <div>
+              <p class="task-name">Todo interactions</p>
+              <p class="task-desc">Feature • drag/drop later</p>
+            </div>
+            <span class="dot pink" aria-hidden="true"></span>
+          </div>
+          <div class="task-foot">
+            <span><i class="bi bi-calendar2 me-1"></i> 02/18</span>
+            <span><i class="bi bi-bug me-1"></i> 1 issue</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Review -->
+      <div class="column">
+        <div class="col-head">
+          <div class="col-title">Review</div>
+          <button class="icon-btn" style="width:34px;height:34px" aria-label="Add">
+            <i class="bi bi-plus"></i>
+          </button>
+        </div>
+
+        <article class="card-task">
+          <div class="task-top">
+            <div>
+              <p class="task-name">Merge CSS structure</p>
+              <p class="task-desc">Refactor • theme/components split</p>
+            </div>
+            <span class="dot green" aria-hidden="true"></span>
+          </div>
+          <div class="task-foot">
+            <span><i class="bi bi-calendar2 me-1"></i> 02/20</span>
+            <button class="btn btn-sm btn-outline-secondary rounded-pill">Open</button>
+          </div>
+        </article>
+
+        <article class="card-task">
+          <div class="task-top">
+            <div>
+              <p class="task-name">README update</p>
+              <p class="task-desc">Docs • links / screenshots</p>
+            </div>
+            <span class="dot blue" aria-hidden="true"></span>
+          </div>
+          <div class="task-foot">
+            <span><i class="bi bi-calendar2 me-1"></i> 02/22</span>
+            <span><i class="bi bi-check2-circle me-1"></i> Ready</span>
+          </div>
+        </article>
+      </div>
+
+    </section>
+  </section>
+
+  <!-- Code -->
+  <section class="kit-card p-4 mt-4">
+    <h5 class="fw-bold mb-2">Copy / Paste (Pattern Markup)</h5>
+    <p class="text-muted mb-3">
+      아래 마크업을 dashboard 페이지 본문에 그대로 붙이고, 스타일은
+      <code>theme.css</code> + <code>components.css</code> + <code>dashboard.css</code> 로드하면 됩니다.
+    </p>
+
+<pre>&lt;!-- Project header --&gt;
+&lt;div class="project-header"&gt;
+  &lt;div&gt;
+    &lt;h2&gt;UI Portfolio Build&lt;/h2&gt;
+    &lt;div class="project-meta"&gt;Frontend UI samples + UI Kit documentation&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="d-flex align-items-center gap-2 flex-wrap justify-content-end"&gt;
+    &lt;span class="pill"&gt;&lt;i class="bi bi-calendar-event"&gt;&lt;/i&gt; Due: Feb 28&lt;/span&gt;
+    &lt;div class="mini-avatars"&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;button class="btn btn-accent"&gt;&lt;i class="bi bi-plus-lg me-1"&gt;&lt;/i&gt; Create new ticket&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Kanban board --&gt;
+&lt;section class="board"&gt;
+
+  &lt;div class="column"&gt;
+    &lt;div class="col-head"&gt;
+      &lt;div class="col-title"&gt;Backlog&lt;/div&gt;
+      &lt;button class="icon-btn" style="width:34px;height:34px"&gt;&lt;i class="bi bi-plus"&gt;&lt;/i&gt;&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;article class="card-task"&gt;...&lt;/article&gt;
+  &lt;/div&gt;
+
+  &lt;div class="column"&gt;...&lt;/div&gt;
+  &lt;div class="column"&gt;...&lt;/div&gt;
+
+&lt;/section&gt;</pre>
+
+    <div class="code-wrap">
+      <div class="hint">
+        ✅ 참고: 이 패턴은 “컨텐츠 구조”만 담당. 실제 데이터 연결(투두 CRUD/드래그)은 JS/백엔드에서 붙이면 됩니다.
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

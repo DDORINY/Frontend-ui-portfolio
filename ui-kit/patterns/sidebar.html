@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sidebar Pattern - DDORINY UI Kit</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/pages/dashboard.css">
+
+  <style>
+    .kit-shell{ max-width: 1100px; margin: 0 auto; }
+    .kit-card{ background:#fff; border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); }
+    pre{ background:#0f172a; color:#e5e7eb; padding:14px; border-radius:12px; font-size:.85rem; overflow:auto; margin:0; }
+    .code-wrap{ border-top:1px solid rgba(15,23,42,.06); margin-top:14px; padding-top:14px; }
+    .hint{ color:var(--muted); font-size:.92rem; }
+
+    .preview-grid{
+      display:grid;
+      grid-template-columns: 300px 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 992px){ .preview-grid{ grid-template-columns: 1fr; } }
+
+    .preview-pane{
+      background: rgba(255,255,255,.8);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+<div class="container py-5 kit-shell">
+
+  <div class="d-flex justify-content-between align-items-start mb-4">
+    <div>
+      <h1 class="fw-bold mb-1">Patterns · Sidebar</h1>
+      <div class="text-muted">프로필 + 메뉴 + 하단 액션(Back to Portfolio)</div>
+    </div>
+    <div class="d-flex gap-2">
+      <a class="btn btn-outline-secondary rounded-pill" href="../index.html">UI Kit Home</a>
+      <a class="btn btn-outline-secondary rounded-pill" href="../../index.html">Portfolio</a>
+    </div>
+  </div>
+
+  <section class="kit-card p-4 mb-4">
+    <h5 class="fw-bold mb-2">Preview</h5>
+    <div class="hint mb-3">사이드바는 sticky/height 100vh가 기본인데, 문서에서는 데모용으로 height를 풀어 보여줍니다.</div>
+
+    <div class="preview-grid">
+      <aside class="sidebar position-relative" style="height:auto; position:relative;">
+        <div class="profile">
+          <div class="avatar" aria-hidden="true">M</div>
+          <div>
+            <div class="fw-bold">Miranda</div>
+            <small>Lead Designer • <span class="text-success">Online</span></small>
+          </div>
+        </div>
+
+        <div class="nav-title">Menu</div>
+        <nav class="d-grid gap-1">
+          <a class="side-link active" href="#"><i class="bi bi-briefcase"></i> Work</a>
+          <a class="side-link" href="#"><i class="bi bi-journal-text"></i> Plan</a>
+          <a class="side-link" href="#"><i class="bi bi-bar-chart"></i> Stats</a>
+          <a class="side-link" href="#"><i class="bi bi-folder2-open"></i> Documents</a>
+          <a class="side-link" href="#"><i class="bi bi-people"></i> Users</a>
+          <a class="side-link" href="#"><i class="bi bi-gear"></i> Settings</a>
+        </nav>
+
+        <div class="mt-4">
+          <div class="nav-title">Actions</div>
+          <a class="side-link" href="../../index.html"><i class="bi bi-box-arrow-left"></i> Back to Portfolio</a>
+        </div>
+      </aside>
+
+      <div class="preview-pane">
+        <div class="fw-bold mb-2">How to use</div>
+        <div class="hint mb-3">
+          현재 페이지 메뉴 = <code>.side-link.active</code><br>
+          섹션 구분 = <code>.nav-title</code><br>
+          프로필 = <code>.profile</code> + <code>.avatar</code>
+        </div>
+        <div class="fw-bold mb-2">Tip</div>
+        <div class="hint">실제 dashboard에서는 <code>.logout</code>를 absolute bottom으로 둬도 되고, 문서/모바일은 흐름형으로 둬도 OK</div>
+      </div>
+    </div>
+
+    <div class="code-wrap">
+      <div class="fw-bold mb-2">Copy / Paste Markup</div>
+<pre>&lt;aside class="sidebar"&gt;
+  &lt;div class="profile"&gt;
+    &lt;div class="avatar"&gt;M&lt;/div&gt;
+    &lt;div&gt;
+      &lt;div class="fw-bold"&gt;Miranda&lt;/div&gt;
+      &lt;small&gt;Lead Designer • Online&lt;/small&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="nav-title"&gt;Menu&lt;/div&gt;
+  &lt;nav class="d-grid gap-1"&gt;
+    &lt;a class="side-link active" href="#"&gt;&lt;i class="bi bi-briefcase"&gt;&lt;/i&gt; Work&lt;/a&gt;
+    &lt;a class="side-link" href="#"&gt;&lt;i class="bi bi-gear"&gt;&lt;/i&gt; Settings&lt;/a&gt;
+  &lt;/nav&gt;
+
+  &lt;a class="side-link" href="../../index.html"&gt;&lt;i class="bi bi-box-arrow-left"&gt;&lt;/i&gt; Back to Portfolio&lt;/a&gt;
+&lt;/aside&gt;</pre>
+    </div>
+  </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

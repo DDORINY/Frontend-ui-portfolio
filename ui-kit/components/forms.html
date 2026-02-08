@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Forms - DDORINY UI Kit</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- ✅ Design System -->
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+
+  <!-- ✅ Page styles (login/signup에서 dd-form-control을 가져오려면 필요) -->
+  <link rel="stylesheet" href="../../assets/css/pages/auth-ddoriny.css">
+  <!-- (선택) dashboard 페이지 폼/서치 스타일이 pages/dashboard.css에 있다면 -->
+  <link rel="stylesheet" href="../../assets/css/pages/dashboard.css">
+
+  <style>
+    /* UI Kit doc shell */
+    .kit-shell{ max-width: 1100px; margin: 0 auto; }
+    .kit-card{
+      background:#fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+    pre{
+      background:#0f172a;
+      color:#e5e7eb;
+      padding:14px;
+      border-radius:12px;
+      font-size:.85rem;
+      overflow:auto;
+      margin: 0;
+    }
+    .code-wrap{ border-top:1px solid rgba(15,23,42,.06); margin-top:14px; padding-top:14px; }
+
+    /* Doc only: 구역 라벨 */
+    .badge-soft{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(15,23,42,.10);
+      background:#fff;
+      color: var(--muted);
+      font-size:.85rem;
+    }
+
+    /* Doc only: 어두운 배경 섹션(로그인/회원가입 스타일 데모용) */
+    .demo-dark{
+      border-radius: 16px;
+      overflow:hidden;
+      border: 1px solid rgba(15,23,42,.08);
+      box-shadow: var(--shadow);
+    }
+    .demo-dark .inner{
+      /* auth 페이지의 dd-login/dd-signup 배경과 충돌 없이 보여주기 위해 별도 래퍼 */
+      background:
+        radial-gradient(900px 500px at 15% 20%, rgba(25,227,138,.14), transparent 60%),
+        radial-gradient(800px 450px at 85% 10%, rgba(13,110,253,.12), transparent 60%),
+        linear-gradient(180deg, #071b2b, #082235);
+      padding: 22px;
+      color: rgba(255,255,255,.92);
+    }
+    .demo-dark .card-glass{
+      max-width: 520px;
+      margin: 0 auto;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 18px;
+      padding: 18px;
+      backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+<div class="container py-5 kit-shell">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-start mb-4">
+    <div>
+      <h1 class="fw-bold mb-1">Components · Forms</h1>
+      <div class="text-muted">입력폼 스타일(대시보드 기본 + 로그인/회원가입 전용)을 문서화합니다.</div>
+    </div>
+
+    <div class="d-flex gap-2">
+      <a class="btn btn-outline-secondary rounded-pill" href="../index.html">UI Kit Home</a>
+      <a class="btn btn-outline-secondary rounded-pill" href="../../index.html">Portfolio</a>
+    </div>
+  </div>
+
+  <!-- 1) Dashboard / Default form controls -->
+  <section class="kit-card p-4 mb-4">
+    <div class="d-flex align-items-center justify-content-between mb-2">
+      <h5 class="fw-bold mb-0">Default Inputs (Bootstrap Base)</h5>
+      <span class="badge-soft"><i class="bi bi-ui-checks"></i> 기본 폼</span>
+    </div>
+    <p class="text-muted mb-4">
+      대시보드/일반 페이지에서는 Bootstrap 기본 폼을 사용하고,
+      필요하면 <code>components.css</code>로 공통 확장(예: input 높이/라운드)을 올리는 구조가 좋습니다.
+    </p>
+
+    <div class="row g-3">
+      <div class="col-12 col-lg-6">
+        <label class="form-label fw-semibold">Text</label>
+        <input class="form-control" placeholder="Type something..." />
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <label class="form-label fw-semibold">Email</label>
+        <input type="email" class="form-control" placeholder="name@example.com" />
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <label class="form-label fw-semibold">Select</label>
+        <select class="form-select">
+          <option>Backlog</option>
+          <option>In Progress</option>
+          <option>Review</option>
+        </select>
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <label class="form-label fw-semibold">Textarea</label>
+        <textarea class="form-control" rows="2" placeholder="Write details..."></textarea>
+      </div>
+
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="check1">
+          <label class="form-check-label" for="check1">
+            Remember me
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-wrap">
+      <div class="fw-bold mb-2">Example Markup</div>
+<pre>&lt;input class="form-control" placeholder="Type something..." /&gt;
+&lt;select class="form-select"&gt;...&lt;/select&gt;
+&lt;textarea class="form-control"&gt;&lt;/textarea&gt;</pre>
+    </div>
+  </section>
+
+  <!-- 2) Dashboard Search pattern (optional) -->
+  <section class="kit-card p-4 mb-4">
+    <div class="d-flex align-items-center justify-content-between mb-2">
+      <h5 class="fw-bold mb-0">Search Input Pattern</h5>
+      <span class="badge-soft"><i class="bi bi-search"></i> 패턴</span>
+    </div>
+    <p class="text-muted mb-4">
+      대시보드 topbar에서 사용한 서치 입력 패턴. (스타일이 <code>pages/dashboard.css</code>에 있을 가능성이 큼)
+    </p>
+
+    <div class="topbar">
+      <div class="d-flex align-items-center gap-2">
+        <button class="icon-btn" type="button" aria-label="Mail"><i class="bi bi-envelope"></i></button>
+        <button class="icon-btn" type="button" aria-label="Notifications"><i class="bi bi-bell"></i></button>
+      </div>
+
+      <div class="search flex-grow-1 mx-2">
+        <i class="bi bi-search text-secondary"></i>
+        <input type="text" placeholder="Search projects" aria-label="Search projects">
+      </div>
+
+      <button class="icon-btn" type="button" aria-label="Menu"><i class="bi bi-list"></i></button>
+    </div>
+
+    <div class="code-wrap">
+      <div class="fw-bold mb-2">Example Markup</div>
+<pre>&lt;div class="search"&gt;
+  &lt;i class="bi bi-search"&gt;&lt;/i&gt;
+  &lt;input type="text" placeholder="Search projects"&gt;
+&lt;/div&gt;</pre>
+    </div>
+  </section>
+
+  <!-- 3) Auth (Login/Signup) inputs: dd-form-control -->
+  <section class="kit-card p-4">
+    <div class="d-flex align-items-center justify-content-between mb-2">
+      <h5 class="fw-bold mb-0">Auth Inputs (dd-form-control)</h5>
+      <span class="badge-soft"><i class="bi bi-shield-lock"></i> 로그인/회원가입 전용</span>
+    </div>
+    <p class="text-muted mb-4">
+      로그인/회원가입은 배경(다크+글래스) 자체가 다르므로 페이지 전용 CSS인
+      <code>pages/auth-ddoriny.css</code>에 <code>.dd-form-control</code> 스타일을 두는 게 맞습니다.
+    </p>
+
+    <!-- Dark demo -->
+    <div class="demo-dark">
+      <div class="inner">
+        <div class="text-center mb-3">
+          <div class="fw-bold">Auth Form Preview</div>
+          <div class="text-white-50 small">dd-form-control</div>
+        </div>
+
+        <div class="card-glass">
+          <form class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label class="form-label small text-white-50">Email or Username</label>
+              <input class="form-control dd-form-control" placeholder="yourname@example.com" required>
+              <div class="invalid-feedback">필수 입력입니다.</div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small text-white-50">Password</label>
+              <input type="password" class="form-control dd-form-control" placeholder="••••••••" required minlength="4">
+              <div class="invalid-feedback">비밀번호를 입력해주세요.</div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="remember2">
+                <label class="form-check-label small" for="remember2">Remember me</label>
+              </div>
+              <a class="link-soft small" href="#" role="button">Forgot?</a>
+            </div>
+
+            <button class="btn btn-primary-neon w-100" type="submit">
+              Login
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-wrap">
+      <div class="fw-bold mb-2">Example Markup</div>
+<pre>&lt;!-- auth-ddoriny.css 로드 필요 --&gt;
+&lt;input class="form-control dd-form-control" placeholder="yourname@example.com"&gt;
+
+&lt;button class="btn btn-primary-neon w-100"&gt;Login&lt;/button&gt;</pre>
+    </div>
+  </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // UI Kit 데모용: Bootstrap validation UX
+  document.querySelectorAll("form.needs-validation").forEach(form => {
+    form.addEventListener("submit", (e) => {
+      if (!form.checkValidity()){
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      form.classList.add("was-validated");
+    });
+  });
+</script>
+</body>
+</html>

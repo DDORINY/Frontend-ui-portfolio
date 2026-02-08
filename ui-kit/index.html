@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UI Kit - DDORINY</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/theme.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/pages/dashboard.css">
+
+  <style>
+    .kit-shell{ max-width:1100px; margin:0 auto; }
+    .kit-card{ background:#fff; border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); }
+    .kit-link{ text-decoration:none; }
+  </style>
+</head>
+<body class="bg-light">
+  <div class="container py-5 kit-shell">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <div>
+        <h1 class="fw-bold mb-1">DDORINY UI Kit</h1>
+        <div class="text-muted">Foundations · Components · Patterns</div>
+      </div>
+      <a class="btn btn-outline-secondary rounded-pill" href="../index.html">
+        <i class="bi bi-box-arrow-left me-1"></i> Back to Portfolio
+      </a>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-12 col-lg-4">
+        <div class="p-4 kit-card h-100">
+          <h5 class="fw-bold">Foundations</h5>
+          <p class="text-muted mb-3">Design tokens / variables</p>
+          <a class="kit-link d-block" href="foundations/tokens.html">→ tokens.html</a>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-4">
+        <div class="p-4 kit-card h-100">
+          <h5 class="fw-bold">Components</h5>
+          <p class="text-muted mb-2">Reusable UI building blocks</p>
+          <div class="d-grid gap-1">
+            <a class="kit-link" href="components/buttons.html">→ buttons.html</a>
+            <a class="kit-link" href="components/cards.html">→ cards.html</a>
+            <a class="kit-link" href="components/forms.html">→ forms.html</a>
+            <a class="kit-link" href="components/navigation.html">→ navigation.html</a>
+            <a class="kit-link" href="components/avatars.html">→ avatars.html</a>
+            <a class="kit-link" href="components/tables.html">→ tables.html</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-4">
+        <div class="p-4 kit-card h-100">
+          <h5 class="fw-bold">Patterns</h5>
+          <p class="text-muted mb-2">Composed UI sections</p>
+          <div class="d-grid gap-1">
+            <a class="kit-link" href="patterns/topbar.html">→ topbar.html</a>
+            <a class="kit-link" href="patterns/sidebar.html">→ sidebar.html</a>
+            <a class="kit-link" href="patterns/project-header.html">→ project-header.html</a>
+            <a class="kit-link" href="patterns/kanban-board.html">→ kanban-board.html</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

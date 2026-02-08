@@ -1,0 +1,226 @@
+/* =========================================================
+   DDORINY Auth Theme (Login / Signup)
+   - Scope: .dd-login, .dd-signup
+   - 목적: 네온 글래스 테마를 auth 페이지만에 적용 (전역 오염 방지)
+   ========================================================= */
+
+/* ---------- Shared Tokens (Login/Signup 공통) ---------- */
+.dd-login,
+.dd-signup{
+  --bg-0:#071b2b;
+  --bg-1:#082235;
+  --surface: rgba(255,255,255,.06);
+  --stroke: rgba(255,255,255,.12);
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.65);
+  --primary: #19e38a;
+  --primary-2: #10c96f;
+  --radius: 18px;
+  --shadow: 0 20px 60px rgba(0,0,0,.38);
+
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(900px 500px at 15% 20%, rgba(25,227,138,.14), transparent 60%),
+    radial-gradient(800px 450px at 85% 10%, rgba(13,110,253,.12), transparent 60%),
+    linear-gradient(180deg, var(--bg-0), var(--bg-1));
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ---------- Shared Background Pattern ---------- */
+.dd-login .bg-pattern,
+.dd-signup .bg-pattern{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .18;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,.35) 1px, transparent 2px),
+    radial-gradient(circle at 70% 20%, rgba(255,255,255,.25) 1px, transparent 2px),
+    radial-gradient(circle at 40% 70%, rgba(255,255,255,.25) 1px, transparent 2px);
+  background-size: 220px 220px, 260px 260px, 300px 300px;
+}
+
+/* ---------- Topbar / Brand ---------- */
+.dd-login .topbar,
+.dd-signup .topbar{
+  position: relative;
+  z-index: 5;
+  padding: 18px 0;
+}
+
+.dd-login .brand,
+.dd-signup .brand{
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  font-weight: 700;
+  letter-spacing: .2px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.dd-login .brand .mark,
+.dd-signup .brand .mark,
+.dd-signup .mark{
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: rgba(25,227,138,.16);
+  border: 1px solid rgba(25,227,138,.25);
+  box-shadow: 0 10px 30px rgba(25,227,138,.12);
+  font-weight: 900;
+  color: var(--primary);
+}
+
+/* Signup에서 .mark가 span에 직접 붙는 경우도 있어서 보강 */
+.dd-signup .mark{
+  box-shadow: 0 10px 30px rgba(25,227,138,.12);
+}
+
+/* ---------- Language pill (Login에만 사용하지만 공통으로 둠) ---------- */
+.dd-login .lang{
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+  color: var(--muted);
+  font-size: .9rem;
+  user-select: none;
+}
+
+/* ---------- Page Wrap ---------- */
+.dd-login .login-wrap,
+.dd-signup .signup-wrap{
+  position: relative;
+  z-index: 5;
+  padding: 32px 0 140px;
+}
+
+/* ---------- Center Logo / Subtitle ---------- */
+.dd-login .logo-center,
+.dd-signup .logo-center{
+  width: 62px; height: 62px;
+  border-radius: 22px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 14px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: var(--shadow);
+  color: var(--primary);
+  font-weight: 900;
+  font-size: 1.4rem;
+}
+
+.dd-login .subtitle,
+.dd-signup .subtitle{
+  color: var(--muted);
+  font-size: .95rem;
+  margin-bottom: 0;
+}
+
+/* ---------- Glass Form Card ---------- */
+.dd-login .form-card,
+.dd-signup .form-card{
+  margin: 22px auto 0;
+  background: var(--surface);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dd-login .form-card{ max-width: 420px; }
+.dd-signup .form-card{ max-width: 460px; }
+
+/* ---------- Inputs (전역 .form-control 오염 방지: dd-form-control) ---------- */
+.dd-login .dd-form-control,
+.dd-signup .dd-form-control{
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  color: var(--text);
+  padding: .85rem 1rem;
+  border-radius: 14px;
+}
+
+.dd-login .dd-form-control::placeholder{
+  color: rgba(255,255,255,.50);
+}
+
+.dd-login .dd-form-control:focus,
+.dd-signup .dd-form-control:focus{
+  background: rgba(255,255,255,.08);
+  border-color: rgba(25,227,138,.55);
+  box-shadow: 0 0 0 .25rem rgba(25,227,138,.18);
+  color: var(--text);
+}
+
+/* ---------- Checkbox ---------- */
+.dd-login .form-check-input,
+.dd-signup .form-check-input{
+  background-color: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.18);
+}
+
+.dd-login .form-check-input:checked,
+.dd-signup .form-check-input:checked{
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* ---------- Links ---------- */
+.dd-login .link-soft,
+.dd-signup .link-soft{
+  color: rgba(25,227,138,.92);
+  text-decoration: none;
+}
+.dd-login .link-soft:hover{
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* ---------- Primary Neon Button ---------- */
+.dd-login .btn-primary-neon,
+.dd-signup .btn-primary-neon{
+  background: linear-gradient(180deg, var(--primary), var(--primary-2));
+  border: 0;
+  border-radius: 14px;
+  padding: .85rem 1rem;
+  font-weight: 700;
+  box-shadow: 0 14px 35px rgba(25,227,138,.20);
+}
+.dd-login .btn-primary-neon:hover,
+.dd-signup .btn-primary-neon:hover{
+  filter: brightness(1.03);
+  box-shadow: 0 16px 40px rgba(25,227,138,.24);
+}
+
+/* ---------- Login 전용: Wave ---------- */
+.dd-login .wave{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ---------- Footer Note ---------- */
+.dd-login .footer-note,
+.dd-signup .footer-note{
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  color: rgba(255,255,255,.45);
+  font-size: .8rem;
+}

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Buttons - DDORINY UI Kit</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- ✅ Design System -->
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+
+  <style>
+    /* UI Kit doc shell */
+    .kit-shell{ max-width: 1100px; margin: 0 auto; }
+    .kit-card{
+      background:#fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+    pre{
+      background:#0f172a;
+      color:#e5e7eb;
+      padding:14px;
+      border-radius:12px;
+      font-size:.85rem;
+      overflow:auto;
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+<div class="container py-5 kit-shell">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-start mb-4">
+    <div>
+      <h1 class="fw-bold mb-1">Components · Buttons</h1>
+      <div class="text-muted">버튼 컴포넌트 스타일 가이드</div>
+    </div>
+
+    <div class="d-flex gap-2">
+      <a class="btn btn-outline-secondary rounded-pill" href="../index.html">
+        UI Kit Home
+      </a>
+      <a class="btn btn-outline-secondary rounded-pill" href="../../index.html">
+        Portfolio
+      </a>
+    </div>
+  </div>
+
+  <!-- Bootstrap Buttons -->
+  <section class="kit-card p-4 mb-4">
+    <h5 class="fw-bold mb-3">Bootstrap Base Buttons</h5>
+
+    <div class="d-flex flex-wrap gap-2 mb-3">
+      <button class="btn btn-primary">Primary</button>
+      <button class="btn btn-secondary">Secondary</button>
+      <button class="btn btn-success">Success</button>
+      <button class="btn btn-danger">Danger</button>
+      <button class="btn btn-warning">Warning</button>
+      <button class="btn btn-outline-dark">Outline</button>
+    </div>
+
+<pre>&lt;button class="btn btn-primary"&gt;Primary&lt;/button&gt;</pre>
+  </section>
+
+
+  <!-- Accent Button -->
+  <section class="kit-card p-4 mb-4">
+    <h5 class="fw-bold mb-3">Accent Button (Design System)</h5>
+
+    <div class="d-flex flex-wrap gap-3 align-items-center mb-3">
+      <button class="btn btn-accent">Create Ticket</button>
+      <button class="btn btn-accent">
+        <i class="bi bi-plus-lg me-1"></i>
+        Add Item
+      </button>
+    </div>
+
+<pre>&lt;button class="btn btn-accent"&gt;Create Ticket&lt;/button&gt;</pre>
+  </section>
+
+
+  <!-- Pill Buttons -->
+  <section class="kit-card p-4 mb-4">
+    <h5 class="fw-bold mb-3">Rounded / Pill Buttons</h5>
+
+    <div class="d-flex gap-2 flex-wrap mb-3">
+      <button class="btn btn-dark rounded-pill px-4">Dark Pill</button>
+      <button class="btn btn-outline-secondary rounded-pill px-4">Outline Pill</button>
+    </div>
+
+<pre>&lt;button class="btn btn-dark rounded-pill"&gt;...&lt;/button&gt;</pre>
+  </section>
+
+
+  <!-- Icon Buttons -->
+  <section class="kit-card p-4 mb-4">
+    <h5 class="fw-bold mb-3">Icon Buttons (.icon-btn)</h5>
+
+    <div class="d-flex gap-2 mb-3">
+      <button class="icon-btn"><i class="bi bi-bell"></i></button>
+      <button class="icon-btn"><i class="bi bi-envelope"></i></button>
+      <button class="icon-btn"><i class="bi bi-gear"></i></button>
+      <button class="icon-btn"><i class="bi bi-three-dots"></i></button>
+    </div>
+
+<pre>&lt;button class="icon-btn"&gt;
+  &lt;i class="bi bi-bell"&gt;&lt;/i&gt;
+&lt;/button&gt;</pre>
+  </section>
+
+
+  <!-- Button Sizes -->
+  <section class="kit-card p-4 mb-4">
+    <h5 class="fw-bold mb-3">Sizes</h5>
+
+    <div class="d-flex gap-2 align-items-center mb-3">
+      <button class="btn btn-primary btn-sm">Small</button>
+      <button class="btn btn-primary">Default</button>
+      <button class="btn btn-primary btn-lg">Large</button>
+    </div>
+
+<pre>.btn-sm / .btn-lg</pre>
+  </section>
+
+
+  <!-- Disabled / Loading -->
+  <section class="kit-card p-4">
+    <h5 class="fw-bold mb-3">States</h5>
+
+    <div class="d-flex gap-3 align-items-center mb-3">
+      <button class="btn btn-secondary" disabled>Disabled</button>
+
+      <button class="btn btn-primary" disabled>
+        <span class="spinner-border spinner-border-sm me-2"></span>
+        Loading
+      </button>
+    </div>
+
+<pre>&lt;button disabled&gt;...&lt;/button&gt;</pre>
+  </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

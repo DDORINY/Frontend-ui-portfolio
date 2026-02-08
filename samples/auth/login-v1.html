@@ -1,272 +1,139 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>login-v1-DDORINY</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>login-v1-DDORINY</title>
 
-    <style>
-        :root{
-          --bg-0:#071b2b;
-          --bg-1:#082235;
-          --surface: rgba(255,255,255,.06);
-          --surface-2: rgba(255,255,255,.08);
-          --stroke: rgba(255,255,255,.12);
-          --text: rgba(255,255,255,.92);
-          --muted: rgba(255,255,255,.65);
-          --primary: #19e38a;     /* 네온 그린 */
-          --primary-2: #10c96f;
-          --radius: 18px;
-          --shadow: 0 20px 60px rgba(0,0,0,.38);
-        }
-        body{
-          min-height: 100vh;
-          color: var(--text);
-          background:
-            radial-gradient(900px 500px at 15% 20%, rgba(25,227,138,.14), transparent 60%),
-            radial-gradient(800px 450px at 85% 10%, rgba(13,110,253,.12), transparent 60%),
-            linear-gradient(180deg, var(--bg-0), var(--bg-1));
-          overflow-x: hidden;
-        }
-        .bg-pattern{
-          position: fixed;
-          inset: 0;
-          pointer-events: none;
-          opacity: .18;
-          background-image:
-            radial-gradient(circle at 20% 30%, rgba(255,255,255,.35) 1px, transparent 2px),
-            radial-gradient(circle at 70% 20%, rgba(255,255,255,.25) 1px, transparent 2px),
-            radial-gradient(circle at 40% 70%, rgba(255,255,255,.25) 1px, transparent 2px);
-          background-size: 220px 220px, 260px 260px, 300px 300px;
-        }
-        .topbar{
-      position: relative;
-      z-index: 5;
-      padding: 18px 0;
-    }
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet" />
 
-    .brand{
-      display: inline-flex;
-      align-items: center;
-      gap: .55rem;
-      font-weight: 700;
-      letter-spacing: .2px;
-      text-decoration: none;
-      color: var(--text);
-    }
-    .brand .mark{
-      width: 34px; height: 34px;
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      background: rgba(25,227,138,.16);
-      border: 1px solid rgba(25,227,138,.25);
-      box-shadow: 0 10px 30px rgba(25,227,138,.12);
-      font-weight: 900;
-      color: var(--primary);
-    }
+     <link rel="stylesheet" href="../../assets/css/theme.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/pages/auth-ddoriny.css">
 
-    .lang{
-      display: inline-flex;
-      align-items: center;
-      gap: .45rem;
-      padding: .35rem .6rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
-      color: var(--muted);
-      font-size: .9rem;
-      user-select: none;
-    }
-
-    .login-wrap{
-      position: relative;
-      z-index: 5;
-      padding: 32px 0 140px;
-    }
-
-    .logo-center{
-      width: 62px; height: 62px;
-      border-radius: 22px;
-      display: grid;
-      place-items: center;
-      margin: 0 auto 14px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow: var(--shadow);
-      color: var(--primary);
-      font-weight: 900;
-      font-size: 1.4rem;
-    }
-
-    .subtitle{
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-    .form-card{
-      margin: 22px auto 0;
-      max-width: 420px;
-      background: var(--surface);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-
-    .form-control{
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.14);
-      color: var(--text);
-      padding: .85rem 1rem;
-      border-radius: 14px;
-    }
-    .form-control::placeholder{ color: rgba(255,255,255,.50); }
-    .form-control:focus{
-      background: rgba(255,255,255,.08);
-      border-color: rgba(25,227,138,.55);
-      box-shadow: 0 0 0 .25rem rgba(25,227,138,.18);
-      color: var(--text);
-    }
-
-    .form-check-input{
-      background-color: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.18);
-    }
-    .form-check-input:checked{
-      background-color: var(--primary);
-      border-color: var(--primary);
-    }
-
-    .link-soft{
-      color: rgba(25,227,138,.92);
-      text-decoration: none;
-    }
-    .link-soft:hover{ color: var(--primary); text-decoration: underline; }
-
-    .btn-primary-neon{
-      background: linear-gradient(180deg, var(--primary), var(--primary-2));
-      border: 0;
-      border-radius: 14px;
-      padding: .85rem 1rem;
-      font-weight: 700;
-      box-shadow: 0 14px 35px rgba(25,227,138,.20);
-    }
-    .btn-primary-neon:hover{
-      filter: brightness(1.03);
-      box-shadow: 0 16px 40px rgba(25,227,138,.24);
-    }
-
-    /* 아래 웨이브 */
-    .wave{
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      z-index: 1;
-      pointer-events: none;
-    }
-    .footer-note{
-      position: fixed;
-      bottom: 10px;
-      width: 100%;
-      text-align: center;
-      z-index: 2;
-      color: rgba(255,255,255,.45);
-      font-size: .8rem;
-    }
-    </style>
 </head>
-<body>
 
-<div class="bg-pattern"></div>
+<body class="dd-login">
+  <div class="bg-pattern"></div>
 
-<!-- Topbar -->
-<header class="topbar">
-  <div class="container d-flex align-items-center justify-content-between">
-    <a class="brand" href="#">
-      <span class="mark" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-             fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1"/>
-          <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117M11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5M4 1.934V15h6V1.077z"/>
-        </svg>
-      </span>
-      <span>DDORINY</span>
-    </a>
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a class="brand" href="../../index.html" aria-label="Go to portfolio home">
+        <span class="mark" aria-hidden="true">
+          <i class="bi bi-grid-1x2-fill"></i>
+        </span>
+        <span>DDORINY</span>
+      </a>
 
-    <div class="lang">
-      🇰🇷 KO
+      <div class="lang" aria-label="Language">
+        🇰🇷 KO
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<!-- Center Area -->
-<main class="login-wrap">
-  <div class="container">
+  <!-- Center Area -->
+  <main class="login-wrap">
+    <div class="container">
 
-    <!-- Center Title Block -->
-    <div class="text-center mb-4">
-      <div class="logo-center">
-        <i class="bi bi-door-open"></i>
+      <div class="text-center mb-4">
+        <div class="logo-center" aria-hidden="true">
+          <i class="bi bi-door-open"></i>
+        </div>
+        <h1 class="h3 fw-semibold mb-1">LOGIN</h1>
+        <p class="subtitle">Please log in to continue</p>
       </div>
 
-      <h2 class="fw-semibold">LOGIN</h2>
-      <p class="subtitle">Please log in to continue</p>
-    </div>
-
-    <!-- Login Card -->
-    <section class="form-card p-4">
-
-      <form>
-        <div class="mb-3">
-          <input type="text" class="form-control" placeholder="Login">
-        </div>
-
-        <div class="mb-3">
-          <input type="password" class="form-control" placeholder="Password">
-        </div>
-
-        <div class="d-flex justify-content-between mb-3">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="remember">
-            <label class="form-check-label small" for="remember">
-              Remember me
-            </label>
+      <section class="form-card p-4" aria-label="Login form">
+        <form id="loginForm" novalidate>
+          <!-- Username -->
+          <div class="mb-3">
+            <label for="loginId" class="form-label small text-white-50">Email or Username</label>
+            <input
+              id="loginId"
+              name="loginId"
+              type="text"
+              class="form-control dd-form-control"
+              placeholder="yourname@example.com"
+              autocomplete="username"
+              required
+            />
+            <div class="invalid-feedback">아이디(이메일/유저명)를 입력해주세요.</div>
           </div>
 
-          <a class="link-soft small" href="#">Forgot password?</a>
-        </div>
-                  <button type="submit" class="btn btn-primary-neon w-100">
-          Login
-        </button>
-      </form>
-    </section>
+          <!-- Password -->
+          <div class="mb-3">
+            <label for="password" class="form-label small text-white-50">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              class="form-control dd-form-control"
+              placeholder="••••••••"
+              autocomplete="current-password"
+              required
+              minlength="4"
+            />
+            <div class="invalid-feedback">비밀번호를 입력해주세요.</div>
+          </div>
 
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="remember" name="remember" />
+              <label class="form-check-label small" for="remember">
+                Remember me
+              </label>
+            </div>
+
+            <a class="link-soft small" href="#" role="button">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn btn-primary-neon w-100">
+            Login
+          </button>
+
+          <div class="mt-3 text-center small text-white-50">
+            Don’t have an account?
+            <a class="link-soft" href="#">Sign up</a>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <!-- Wave -->
+  <svg class="wave" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,160 C240,210 480,220 720,190 C960,160 1200,120 1440,150 L1440,260 L0,260 Z"
+          fill="rgba(255,255,255,.06)"></path>
+    <path d="M0,190 C260,240 520,230 720,210 C940,190 1180,170 1440,190 L1440,260 L0,260 Z"
+          fill="rgba(255,255,255,.10)"></path>
+    <path d="M0,215 C240,250 520,250 760,230 C980,215 1200,210 1440,225 L1440,260 L0,260 Z"
+          fill="rgba(255,255,255,.14)"></path>
+  </svg>
+
+  <div class="footer-note">
+    © 2026 DDORINY • All rights reserved
   </div>
-</main>
 
-<!-- Wave SVG (원하면 유지) -->
-<svg class="wave" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true">
-  <path d="M0,160 C240,210 480,220 720,190 C960,160 1200,120 1440,150 L1440,260 L0,260 Z"
-        fill="rgba(255,255,255,.06)"></path>
-  <path d="M0,190 C260,240 520,230 720,210 C940,190 1180,170 1440,190 L1440,260 L0,260 Z"
-        fill="rgba(255,255,255,.10)"></path>
-  <path d="M0,215 C240,250 520,250 760,230 C980,215 1200,210 1440,225 L1440,260 L0,260 Z"
-        fill="rgba(255,255,255,.14)"></path>
-</svg>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+          crossorigin="anonymous"></script>
 
-<div class="footer-note">
-  © 2026 DDORINY • All rights reserved
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-
+  <script>
+    // Bootstrap 기본 검증 UX (포트폴리오 데모용)
+    const form = document.getElementById("loginForm");
+    form.addEventListener("submit", (e) => {
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      form.classList.add("was-validated");
+    });
+  </script>
 </body>
 </html>
