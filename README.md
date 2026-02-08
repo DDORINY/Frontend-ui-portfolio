@@ -50,8 +50,9 @@ Bootstrap 기반 화면 레이아웃 및 UI 컴포넌트 설계 실습 저장소
 썸네일 클릭 시 실제 UI 페이지로 이동합니다.
 
 ### Login Page v1
-
-[![](assets/img/previews/login-v1.png)](samples/auth/login-v1.html)
+| Login | Signup |
+|--------|---------|
+|[![](assets/img/previews/login-v1.png)](samples/auth/login-v1.html)| [![](docs/images/signup-v1.png)](samples/auth/signup-v1.html) |
 
 ---
 
