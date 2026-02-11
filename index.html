@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Frontend UI Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<<<<<<< HEAD
+  <!-- Bootstrap / Swiper -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <!-- (아이콘 쓰고 있으니) Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <style>
     :root{
@@ -61,9 +64,7 @@
     }
 
     /* ====== Hero ====== */
-    .hero{
-      padding: 44px 0 22px;
-    }
+    .hero{ padding: 44px 0 22px; }
     .hero-card{
       background: rgba(255,255,255,.75);
       border: 1px solid rgba(15,23,42,.08);
@@ -80,10 +81,7 @@
       opacity: .55;
       pointer-events:none;
     }
-    .hero-inner{
-      position: relative;
-      padding: 28px;
-    }
+    .hero-inner{ position: relative; padding: 28px; }
     .hero h1{
       font-weight: 900;
       letter-spacing: -.03em;
@@ -143,18 +141,11 @@
       padding: 10px 6px 40px;
       position: relative;
     }
-=======
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <style>
-    .ui-swiper { padding: 8px 4px 34px; position: relative; }
->>>>>>> 1cbd49d04376d511ed55d8fcca087c6c65db7cb3
 
     .ui-card{
       display:block;
       text-decoration:none;
       color: inherit;
-<<<<<<< HEAD
       background: rgba(255,255,255,.92);
       border-radius: var(--radius);
       overflow:hidden;
@@ -200,47 +191,18 @@
     .ui-swiper .swiper-pagination-bullet-active{ opacity: 1; }
 
     /* Swiper nav buttons */
-=======
-      background:#fff;
-      border-radius: 14px;
-      overflow:hidden;
-      box-shadow: 0 10px 24px rgba(0,0,0,.10);
-      border: 1px solid rgba(0,0,0,.06);
-    }
-    .ui-card img{
-      width:100%;
-      height:160px;
-      object-fit: cover;
-      display:block;
-    }
-    .ui-card-body{ padding: 12px 14px; }
-    .ui-title{ font-weight: 700; }
-    .ui-desc{ font-size:.9rem; color:#6c757d; }
-
-    /* Swiper pagination 위치 */
-    .ui-swiper .swiper-pagination{ bottom: 0 !important; }
-
-    /* Swiper 좌우 버튼 스타일(bootstrap 느낌) */
->>>>>>> 1cbd49d04376d511ed55d8fcca087c6c65db7cb3
     .ui-swiper .swiper-button-prev,
     .ui-swiper .swiper-button-next{
       width: 42px;
       height: 42px;
       border-radius: 999px;
-<<<<<<< HEAD
       background: rgba(255,255,255,.92);
       box-shadow: var(--shadow-soft);
       border: 1px solid rgba(15,23,42,.08);
-=======
-      background: rgba(255,255,255,.9);
-      box-shadow: 0 10px 24px rgba(0,0,0,.10);
-      border: 1px solid rgba(0,0,0,.06);
->>>>>>> 1cbd49d04376d511ed55d8fcca087c6c65db7cb3
     }
     .ui-swiper .swiper-button-prev::after,
     .ui-swiper .swiper-button-next::after{
       font-size: 16px;
-<<<<<<< HEAD
       font-weight: 800;
       color: #0f172a;
     }
@@ -267,15 +229,10 @@
       color: rgba(100,116,139,.85);
       font-size: .9rem;
       text-align:center;
-=======
-      font-weight: 700;
-      color: #111;
->>>>>>> 1cbd49d04376d511ed55d8fcca087c6c65db7cb3
     }
   </style>
 </head>
 
-<<<<<<< HEAD
 <body>
   <!-- Topbar -->
   <div class="topbar">
@@ -321,51 +278,27 @@
       </div>
       <div class="sub d-none d-md-block">Auto slide · Hover pause · Navigation</div>
     </div>
-=======
-<body class="bg-light">
-  <div class="container py-5">
-
-    <!-- 헤더 -->
-    <div class="mb-5 text-center">
-      <h1 class="fw-bold">Frontend UI Portfolio</h1>
-      <p class="text-muted">Bootstrap 기반 UI 레이아웃 및 컴포넌트 설계 실습 모음</p>
-    </div>
-
-    <!-- UI Samples -->
-    <h3 class="mb-3">UI Samples</h3>
->>>>>>> 1cbd49d04376d511ed55d8fcca087c6c65db7cb3
 
     <div class="swiper ui-swiper">
       <div class="swiper-wrapper">
 
         <div class="swiper-slide">
           <a href="samples/auth/login-v1.html" class="ui-card">
-<<<<<<< HEAD
             <div class="ui-thumb">
               <img src="assets/img/previews/login-v1.png" alt="Login v1 preview" loading="lazy">
             </div>
             <div class="ui-card-body">
               <div class="ui-title">Login v1</div>
               <div class="ui-desc">Glass + Neon Auth UI</div>
-=======
-            <img src="assets/img/previews/login-v1.png" alt="Login v1 preview" loading="lazy">
-            <div class="ui-card-body">
-              <div class="ui-title">Login v1</div>
-              <div class="ui-desc">Glass + Neon Login UI</div>
->>>>>>> 1cbd49d04376d511ed55d8fcca087c6c65db7cb3
             </div>
           </a>
         </div>
 
         <div class="swiper-slide">
           <a href="samples/auth/signup-v1.html" class="ui-card">
-<<<<<<< HEAD
             <div class="ui-thumb">
               <img src="assets/img/previews/signup-v1.png" alt="Signup v1 preview" loading="lazy">
             </div>
-=======
-            <img src="assets/img/previews/signup-v1.png" alt="Signup v1 preview" loading="lazy">
->>>>>>> 1cbd49d04376d511ed55d8fcca087c6c65db7cb3
             <div class="ui-card-body">
               <div class="ui-title">Signup v1</div>
               <div class="ui-desc">Account Register UI</div>
@@ -375,13 +308,9 @@
 
         <div class="swiper-slide">
           <a href="samples/dashboard/dashboard-v1.html" class="ui-card">
-<<<<<<< HEAD
             <div class="ui-thumb">
               <img src="assets/img/previews/dashboard-v1.png" alt="Dashboard v1 preview" loading="lazy">
             </div>
-=======
-            <img src="assets/img/previews/dashboard-v1.png" alt="Dashboard v1 preview" loading="lazy">
->>>>>>> 1cbd49d04376d511ed55d8fcca087c6c65db7cb3
             <div class="ui-card-body">
               <div class="ui-title">Dashboard v1</div>
               <div class="ui-desc">Admin Dashboard UI</div>
@@ -391,16 +320,11 @@
 
       </div>
 
-<<<<<<< HEAD
-=======
-      <!-- Swiper 전용 컨트롤 -->
->>>>>>> 1cbd49d04376d511ed55d8fcca087c6c65db7cb3
       <div class="swiper-button-prev" aria-label="Previous"></div>
       <div class="swiper-button-next" aria-label="Next"></div>
       <div class="swiper-pagination"></div>
     </div>
 
-<<<<<<< HEAD
     <!-- UI Kit CTA -->
     <div class="cta">
       <div>
@@ -418,55 +342,25 @@
     </div>
 
     <div class="footer">© 2026 DDORINY • Frontend UI Portfolio</div>
-=======
-    <!-- UI Kit -->
-    <hr class="my-5">
-
-    <h3>UI Kit</h3>
-    <p class="text-muted">재사용 가능한 UI 컴포넌트 모음</p>
-    <a href="ui-kit/index.html" class="btn btn-dark">UI Kit 문서 보기</a>
-
->>>>>>> 1cbd49d04376d511ed55d8fcca087c6c65db7cb3
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     const swiper = new Swiper(".ui-swiper", {
       loop: true,
-<<<<<<< HEAD
-      speed: 650,
-=======
       speed: 600,
->>>>>>> 1cbd49d04376d511ed55d8fcca087c6c65db7cb3
       spaceBetween: 18,
-      autoplay: {
-        delay: 2200,
-        disableOnInteraction: false
-      },
-      pagination: {
-        el: ".ui-swiper .swiper-pagination",
-        clickable: true
-      },
-      navigation: {
-        nextEl: ".ui-swiper .swiper-button-next",
-        prevEl: ".ui-swiper .swiper-button-prev"
-      },
+      autoplay: { delay: 2200, disableOnInteraction: false },
+      pagination: { el: ".ui-swiper .swiper-pagination", clickable: true },
+      navigation: { nextEl: ".ui-swiper .swiper-button-next", prevEl: ".ui-swiper .swiper-button-prev" },
       breakpoints: {
-<<<<<<< HEAD
         0:   { slidesPerView: 1.12 },
-=======
-        0:   { slidesPerView: 1.15 },
->>>>>>> 1cbd49d04376d511ed55d8fcca087c6c65db7cb3
         576: { slidesPerView: 2.05 },
         992: { slidesPerView: 3.05 }
       }
     });
 
-<<<<<<< HEAD
-    // hover pause
-=======
-    // (선택) 마우스 올리면 자동 슬라이드 멈춤
->>>>>>> 1cbd49d04376d511ed55d8fcca087c6c65db7cb3
+    // Hover pause
     const el = document.querySelector(".ui-swiper");
     el.addEventListener("mouseenter", () => swiper.autoplay.stop());
     el.addEventListener("mouseleave", () => swiper.autoplay.start());
