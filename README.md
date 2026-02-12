@@ -58,17 +58,27 @@ Bootstrap 기반 화면 레이아웃 + UI 컴포넌트 설계 포트폴리오 �
 
 ## Board (v1 / v2 Variants)
 
+게시판 UI를 **레이아웃 v1 → 패턴 확장 v2**로 리디자인한 샘플입니다.  
+v2는 필터, 사이드 패널, 액션 그룹, 카드형 정보 구조를 추가했습니다.
+
+### List
+
 | List v1 | List v2 |
 |---|---|
-| [![](assets/img/previews/board-list-v1.png)](samples/board/board-list-v1.html) | [![](assets/img/previews/board-list-v2.png)](samples/board/board-list-v2.html) |
+| [![board-list-v1](assets/img/previews/board-list-v1.png)](samples/board/board-list-v1.html) | [![board-list-v2](assets/img/previews/board-list-v2.png)](samples/board/board-list-v2.html) |
+
+### Detail
 
 | Detail v1 | Detail v2 |
 |---|---|
-| [![](assets/img/previews/board-detail-v1.png)](samples/board/board-detail-v1.html) | [![](assets/img/previews/board-detail-v2.png)](samples/board/board-detail-v2.html) |
+| [![board-detail-v1](assets/img/previews/board-detail-v1.png)](samples/board/board-detail-v1.html) | [![board-detail-v2](assets/img/previews/board-detail-v2.png)](samples/board/board-detail-v2.html) |
+
+### Write
 
 | Write v1 | Write v2 |
 |---|---|
-| [![](assets/img/previews/board-write-v1.png)](samples/board/board-write-v1.html) | [![](assets/img/previews/board-write-v2.png)](samples/board/board-write-v2.html) |
+| [![board-write-v1](assets/img/previews/board-write-v1.png)](samples/board/board-write-v1.html) | [![board-write-v2](assets/img/previews/board-write-v2.png)](samples/board/board-write-v2.html) |
+
 
 ---
 
