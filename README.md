@@ -64,11 +64,11 @@ Bootstrap 기반 화면 레이아웃 + UI 컴포넌트 설계 포트폴리오 �
 
 | Detail v1 | Detail v2 |
 |---|---|
-| [![](assets/img/previews/board-detail-v1.png)](samples/board/board-detail-v1) | [![](assets/img/previews/board-detail-v2.png)](samples/board/board-detail-v2) |
+| [![](assets/img/previews/board-detail-v1.png)](samples/board/board-detail-v1.html) | [![](assets/img/previews/board-detail-v2.png)](samples/board/board-detail-v2.html) |
 
 | Write v1 | Write v2 |
 |---|---|
-| [![](assets/img/previews/board-write-v1.png)](samples/board/board-write-v1) | [![](assets/img/previews/board-write-v2.png)](samples/board/board-write-v2) |
+| [![](assets/img/previews/board-write-v1.png)](samples/board/board-write-v1.html) | [![](assets/img/previews/board-write-v2.png)](samples/board/board-write-v2.html) |
 
 ---
 
