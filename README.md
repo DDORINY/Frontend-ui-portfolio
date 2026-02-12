@@ -68,7 +68,7 @@ Bootstrap 기반 화면 레이아웃 + UI 컴포넌트 설계 포트폴리오 �
 
 | Write v1 | Write v2 |
 |---|---|
-| [![](assets/img/previews/board-write-v1.png)](samples/board/board-write-v1) | [![](assets/img/previews/board-write-v2.png)](samples/board/board-write-v2)) |
+| [![](assets/img/previews/board-write-v1.png)](samples/board/board-write-v1) | [![](assets/img/previews/board-write-v2.png)](samples/board/board-write-v2) |
 
 ---
 
