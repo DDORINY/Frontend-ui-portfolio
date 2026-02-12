@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Board Detail v2 - DDORINY</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/pages/board.css">
+</head>
+
+<body class="bg-light">
+  <div class="container py-4 page-wrap">
+
+    <!-- Top bar -->
+    <div class="surface p-3 p-md-4 mb-3">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+        <div class="d-flex flex-wrap gap-2">
+          <span class="chip"><i class="bi bi-chat-dots"></i> Board</span>
+          <span class="chip"><i class="bi bi-file-text"></i> Detail v2</span>
+          <span class="chip"><i class="bi bi-eye"></i> Read</span>
+        </div>
+
+        <div class="d-flex gap-2 flex-wrap align-items-center">
+          <a class="btn btn-outline-secondary rounded-pill" href="./board-list-v2.html">
+            <i class="bi bi-arrow-left me-1"></i> 목록
+          </a>
+          <a class="btn btn-brand rounded-pill" href="./board-write-v2.html">
+            <i class="bi bi-pencil-square me-1"></i> 글쓰기
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3">
+      <!-- Main (Post) -->
+      <div class="col-12 col-lg-8">
+        <div class="surface p-4">
+          <!-- category/tags row -->
+          <div class="d-flex flex-wrap gap-2 mb-2">
+            <span class="chip"><i class="bi bi-question-circle"></i> 질문</span>
+            <span class="chip"><i class="bi bi-hash"></i> mysql</span>
+            <span class="chip"><i class="bi bi-hash"></i> foreign-key</span>
+            <span class="chip"><i class="bi bi-link-45deg"></i> 링크</span>
+          </div>
+
+          <h1 class="h4 fw-bold mb-2">외래키 제약 오류(1452) 해결 순서 정리</h1>
+
+          <!-- meta -->
+          <div class="detail-meta">
+            <div class="left">
+              <span class="chip"><i class="bi bi-person"></i>DOHA</span>
+              <span class="chip"><i class="bi bi-clock"></i> 2026-02-12 20:10</span>
+            </div>
+            <div class="right">
+              <span class="chip"><i class="bi bi-eye"></i> 341</span>
+              <span class="chip"><i class="bi bi-heart"></i> 12</span>
+              <span class="chip"><i class="bi bi-chat"></i> 7</span>
+            </div>
+          </div>
+
+          <hr class="soft">
+
+          <!-- content blocks -->
+          <div class="detail-body">
+            <p class="lead mb-3" style="font-size:1rem;">
+              <b>1452</b>는 “참조하는 부모 row가 없음”이 핵심인데, 실제 현장에서는 원인이 3~4개로 갈라집니다.
+              아래 순서로 점검하면 빠르게 해결됩니다.
+            </p>
+
+            <div class="detail-callout">
+              <div class="fw-bold mb-1"><i class="bi bi-check2-circle me-1"></i> 점검 체크리스트</div>
+              <ul class="mb-0 text-muted">
+                <li>부모 테이블에 해당 PK가 존재하는지</li>
+                <li>FK 컬럼 타입/부호/크기가 동일한지</li>
+                <li>트랜잭션/롤백 때문에 부모 insert가 반영되지 않았는지</li>
+                <li>조건(active/role)로 인해 조회/검증 로직이 어긋나지 않았는지</li>
+              </ul>
+            </div>
+
+            <h2 class="h6 fw-bold mt-4">1) 부모 row 존재 확인</h2>
+            <div class="detail-code">
+SELECT id FROM members WHERE id = 12;
+            </div>
+
+            <h2 class="h6 fw-bold mt-4">2) 타입 불일치 확인</h2>
+            <p class="text-muted mb-2">INT/BIGINT, UNSIGNED 차이로도 터집니다.</p>
+            <div class="detail-code">
+SHOW CREATE TABLE boards;
+SHOW CREATE TABLE members;
+            </div>
+
+            <h2 class="h6 fw-bold mt-4">참고 링크</h2>
+            <div class="surface p-3">
+              <div class="fw-bold mb-1"><i class="bi bi-link-45deg me-1"></i> MySQL FK error reference</div>
+              <div class="text-muted" style="font-size:.92rem;">https://example.com/mysql-fk-1452</div>
+            </div>
+          </div>
+
+          <hr class="soft">
+
+          <!-- main actions -->
+          <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+            <div class="d-flex flex-wrap gap-2">
+              <button class="btn btn-outline-dark rounded-pill">
+                <i class="bi bi-heart me-1"></i> 좋아요
+              </button>
+              <button class="btn btn-outline-secondary rounded-pill">
+                <i class="bi bi-bookmark me-1"></i> 저장
+              </button>
+              <button class="btn btn-outline-secondary rounded-pill">
+                <i class="bi bi-share me-1"></i> 공유
+              </button>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2">
+              <button class="btn btn-outline-secondary rounded-pill"><i class="bi bi-pencil"></i> 수정</button>
+              <button class="btn btn-outline-danger rounded-pill"><i class="bi bi-trash"></i> 삭제</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comments drawer-like section -->
+        <div class="surface p-4 mt-3">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="fw-bold"><i class="bi bi-chat me-1"></i> 댓글</div>
+            <span class="chip"><i class="bi bi-layers"></i> 대댓글 지원</span>
+          </div>
+
+          <div class="d-flex gap-2 flex-column flex-md-row mb-3">
+            <input class="form-control" placeholder="댓글을 입력하세요">
+            <button class="btn btn-brand rounded-pill">등록</button>
+          </div>
+
+          <div class="d-grid gap-2">
+            <div class="comment">
+              <div class="d-flex justify-content-between">
+                <div class="who">mentor</div>
+                <div class="when">2026-02-12</div>
+              </div>
+              <p class="text">부모 테이블에 row가 없으면 1452는 무조건 발생합니다. 먼저 members에 id 있는지 확인하세요.</p>
+
+              <div class="d-flex gap-2 mt-2">
+                <button class="btn btn-sm btn-outline-secondary rounded-pill">답글</button>
+                <button class="btn btn-sm btn-outline-secondary rounded-pill">좋아요</button>
+              </div>
+
+              <div class="comment-reply mt-3">
+                <div class="comment">
+                  <div class="d-flex justify-content-between">
+                    <div class="who">kimjihun</div>
+                    <div class="when">2026-02-12</div>
+                  </div>
+                  <p class="text">테스트 데이터가 없었네요… 감사합니다!</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment">
+              <div class="d-flex justify-content-between">
+                <div class="who">admin</div>
+                <div class="when">2026-02-12</div>
+              </div>
+              <p class="text">INT/UNSIGNED 불일치도 자주 원인입니다. SHOW CREATE TABLE로 확인하세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="col-12 col-lg-4">
+        <div class="surface p-4 detail-side">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <div class="fw-bold"><i class="bi bi-person-badge me-1"></i> 작성자</div>
+            <span class="chip"><i class="bi bi-shield"></i> USER</span>
+          </div>
+
+          <div class="surface p-3 mb-3">
+            <div class="d-flex align-items-center gap-2">
+              <div class="detail-avatar"><i class="bi bi-person"></i></div>
+              <div>
+                <div class="fw-bold">kimjihun</div>
+                <div class="text-muted" style="font-size:.92rem;">Backend · Flask · MySQL</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fw-bold mb-2"><i class="bi bi-graph-up me-1"></i> 통계</div>
+          <div class="d-grid gap-2 mb-3">
+            <div class="detail-stat">
+              <span class="text-muted">조회</span><b>341</b>
+            </div>
+            <div class="detail-stat">
+              <span class="text-muted">좋아요</span><b>12</b>
+            </div>
+            <div class="detail-stat">
+              <span class="text-muted">댓글</span><b>7</b>
+            </div>
+          </div>
+
+          <div class="fw-bold mb-2"><i class="bi bi-paperclip me-1"></i> 첨부</div>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <a class="btn btn-sm btn-outline-secondary rounded-pill" href="#"><i class="bi bi-download me-1"></i> schema.png</a>
+            <a class="btn btn-sm btn-outline-secondary rounded-pill" href="#"><i class="bi bi-download me-1"></i> error_log.txt</a>
+          </div>
+
+          <div class="fw-bold mb-2"><i class="bi bi-lightning me-1"></i> 빠른 액션</div>
+          <div class="d-grid gap-2">
+            <a class="btn btn-outline-secondary rounded-pill" href="./board-write-v2.html">
+              <i class="bi bi-reply me-1"></i> 답글 쓰기
+            </a>
+            <a class="btn btn-outline-dark rounded-pill" href="./board-list-v2.html">
+              <i class="bi bi-list-ul me-1"></i> 목록으로
+            </a>
+          </div>
+        </div>
+
+        <!-- Related posts -->
+        <div class="surface p-4 mt-3">
+          <div class="fw-bold mb-2"><i class="bi bi-collection me-1"></i> 관련 글</div>
+
+          <div class="d-grid gap-2">
+            <a class="detail-related" href="#">
+              <div class="fw-bold">MySQL FK 설정 실수 TOP5</div>
+              <div class="text-muted" style="font-size:.9rem;">#mysql #schema</div>
+            </a>
+            <a class="detail-related" href="#">
+              <div class="fw-bold">boards 테이블 설계 체크</div>
+              <div class="text-muted" style="font-size:.9rem;">#db #boards</div>
+            </a>
+            <a class="detail-related" href="#">
+              <div class="fw-bold">Flask + MySQL 트랜잭션 팁</div>
+              <div class="text-muted" style="font-size:.9rem;">#flask #transaction</div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

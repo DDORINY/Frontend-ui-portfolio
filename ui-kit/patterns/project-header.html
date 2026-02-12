@@ -3,119 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Project Header Pattern - DDORINY UI Kit</title>
+  <title>Project Header - Patterns</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
   <link rel="stylesheet" href="../../assets/css/theme.css">
   <link rel="stylesheet" href="../../assets/css/components.css">
-  <link rel="stylesheet" href="../../assets/css/pages/dashboard.css">
 
   <style>
-    .kit-shell{ max-width: 1100px; margin: 0 auto; }
-    .kit-card{ background:#fff; border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); }
-    pre{ background:#0f172a; color:#e5e7eb; padding:14px; border-radius:12px; font-size:.85rem; overflow:auto; margin:0; }
-    .code-wrap{ border-top:1px solid rgba(15,23,42,.06); margin-top:14px; padding-top:14px; }
-    .hint{ color:var(--muted); font-size:.92rem; }
-    .preview-wrap{ background: var(--bg); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); padding: 16px; }
+    .shell{ max-width:1100px; margin:0 auto; }
+    .surface{ background:#fff; border:1px solid var(--border); border-radius:18px; box-shadow:var(--shadow); }
+    .tag{ display:inline-flex; align-items:center; gap:.35rem; padding:.25rem .6rem; border-radius:999px; border:1px solid var(--border); background:#fff; font-size:.85rem; color:#334155; }
+    .code{ font-family: var(--font-mono); font-size:.92rem; background:rgba(15,23,42,.04); border:1px solid var(--border); border-radius:12px; padding:12px; overflow:auto; white-space:pre; }
   </style>
 </head>
 
 <body class="bg-light">
-<div class="container py-5 kit-shell">
+  <div class="container py-4 shell">
 
-  <div class="d-flex justify-content-between align-items-start mb-4">
-    <div>
-      <h1 class="fw-bold mb-1">Patterns · Project Header</h1>
-      <div class="text-muted">섹션 헤더(제목/메타/필/아바타/CTA 버튼)</div>
-    </div>
-    <div class="d-flex gap-2">
-      <a class="btn btn-outline-secondary rounded-pill" href="../index.html">UI Kit Home</a>
-      <a class="btn btn-outline-secondary rounded-pill" href="../../index.html">Portfolio</a>
-    </div>
-  </div>
-
-  <section class="kit-card p-4 mb-4">
-    <h5 class="fw-bold mb-2">Preview</h5>
-    <div class="hint mb-3">칸반/테이블/차트 섹션의 상단에 재사용하기 좋은 “콘텐츠 헤더” 패턴.</div>
-
-    <div class="preview-wrap">
-      <div class="project-header">
+    <div class="surface p-3 p-md-4 mb-4">
+      <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
         <div>
-          <h2>Project Title</h2>
-          <div class="project-meta">Short description</div>
-        </div>
-
-        <div class="d-flex align-items-center gap-2 flex-wrap justify-content-end">
-          <span class="pill"><i class="bi bi-calendar-event"></i> Due: Feb 28</span>
-
-          <div class="mini-avatars" aria-hidden="true">
-            <span></span><span></span><span></span>
+          <div class="d-flex flex-wrap gap-2 mb-2">
+            <span class="tag"><i class="bi bi-journal-text"></i> UI Kit</span>
+            <span class="tag"><i class="bi bi-folder2-open"></i> Section: Patterns</span>
           </div>
-
-          <button class="btn btn-accent">
-            <i class="bi bi-plus-lg me-1"></i> Create new ticket
-          </button>
+          <h1 class="h4 fw-bold mb-1">Project Header</h1>
+          <div class="text-muted">페이지 상단 제목 + 메타 + 액션 버튼 패턴</div>
+        </div>
+        <div class="d-flex gap-2 flex-wrap align-items-center">
+          <a class="btn btn-outline-secondary rounded-pill" href="../index.html"><i class="bi bi-box-arrow-left me-1"></i> Back</a>
+          <a class="btn btn-outline-dark rounded-pill" href="../../index.html"><i class="bi bi-house me-1"></i> Home</a>
         </div>
       </div>
     </div>
 
-    <div class="code-wrap">
-      <div class="fw-bold mb-2">Copy / Paste Markup</div>
-<pre>&lt;div class="project-header"&gt;
-  &lt;div&gt;
-    &lt;h2&gt;Project Title&lt;/h2&gt;
-    &lt;div class="project-meta"&gt;Short description&lt;/div&gt;
-  &lt;/div&gt;
+    <div class="surface p-4">
+      <h2 class="h5 fw-bold">Demo</h2>
 
-  &lt;div class="d-flex align-items-center gap-2 flex-wrap justify-content-end"&gt;
-    &lt;span class="pill"&gt;&lt;i class="bi bi-calendar-event"&gt;&lt;/i&gt; Due: Feb 28&lt;/span&gt;
-    &lt;div class="mini-avatars"&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;button class="btn btn-accent"&gt;&lt;i class="bi bi-plus-lg me-1"&gt;&lt;/i&gt; Create new ticket&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-    </div>
-  </section>
+      <div class="surface p-3">
+        <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3">
+          <div>
+            <div class="d-flex flex-wrap gap-2 mb-2">
+              <span class="chip"><i class="bi bi-kanban"></i> Project</span>
+              <span class="chip"><i class="bi bi-hash"></i> v1</span>
+              <span class="chip"><i class="bi bi-clock"></i> Updated today</span>
+            </div>
+            <div class="fw-bold fs-4">Project Title</div>
+            <div class="text-muted">설명 한 줄 (메타 정보)</div>
+          </div>
 
-  <section class="kit-card p-4">
-    <h5 class="fw-bold mb-2">Variants</h5>
-    <div class="row g-3">
-      <div class="col-12 col-lg-6">
-        <div class="preview-wrap">
-          <div class="project-header">
-            <div>
-              <h2>Todo</h2>
-              <div class="project-meta">Personal task management</div>
-            </div>
-            <div class="d-flex align-items-center gap-2 flex-wrap justify-content-end">
-              <button class="btn btn-dark rounded-pill px-3">
-                <i class="bi bi-plus-lg me-1"></i> Add
-              </button>
-            </div>
+          <div class="d-flex gap-2 flex-wrap">
+            <button class="btn btn-outline-secondary"><i class="bi bi-gear me-1"></i>Settings</button>
+            <button class="btn btn-brand"><i class="bi bi-plus-lg me-1"></i>New</button>
           </div>
         </div>
       </div>
 
-      <div class="col-12 col-lg-6">
-        <div class="preview-wrap">
-          <div class="project-header">
-            <div>
-              <h2>Issues</h2>
-              <div class="project-meta">Bug tracking & status</div>
-            </div>
-            <div class="d-flex align-items-center gap-2 flex-wrap justify-content-end">
-              <span class="pill"><i class="bi bi-filter"></i> Filter: Open</span>
-              <button class="btn btn-accent">New</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <hr class="my-4">
+
+      <h2 class="h5 fw-bold">Usage</h2>
+      <div class="code">&lt;div class="d-flex justify-content-between"&gt;
+  &lt;div&gt;...title/meta...&lt;/div&gt;
+  &lt;div&gt;...actions...&lt;/div&gt;
+&lt;/div&gt;</div>
     </div>
-  </section>
 
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </div>
 </body>
 </html>

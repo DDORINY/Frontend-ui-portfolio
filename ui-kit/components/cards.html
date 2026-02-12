@@ -3,236 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Cards - DDORINY UI Kit</title>
+  <title>Cards - UI Kit</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- ✅ Design System -->
   <link rel="stylesheet" href="../../assets/css/theme.css">
   <link rel="stylesheet" href="../../assets/css/components.css">
-  <!-- Kanban/card 관련 스타일이 pages/dashboard.css에 있다면 같이 로드 -->
-  <link rel="stylesheet" href="../../assets/css/pages/dashboard.css">
 
   <style>
-    /* UI Kit doc shell */
-    .kit-shell{ max-width: 1100px; margin: 0 auto; }
-    .kit-card{
-      background:#fff;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-    }
-    pre{
-      background:#0f172a;
-      color:#e5e7eb;
-      padding:14px;
-      border-radius:12px;
-      font-size:.85rem;
-      overflow:auto;
-      margin: 0;
-    }
-    .code-wrap{ border-top:1px solid rgba(15,23,42,.06); margin-top:14px; padding-top:14px; }
+    .shell{ max-width:1100px; margin:0 auto; }
+    .surface{ background:#fff; border:1px solid var(--border); border-radius:18px; box-shadow:var(--shadow); }
+    .tag{ display:inline-flex; align-items:center; gap:.35rem; padding:.25rem .6rem; border-radius:999px; border:1px solid var(--border); background:#fff; font-size:.85rem; color:#334155; }
+    .code{ font-family: var(--font-mono); font-size:.92rem; background:rgba(15,23,42,.04); border:1px solid var(--border); border-radius:12px; padding:12px; overflow:auto; white-space:pre; }
   </style>
 </head>
 
 <body class="bg-light">
-<div class="container py-5 kit-shell">
+  <div class="container py-4 shell">
 
-  <!-- Header -->
-  <div class="d-flex justify-content-between align-items-start mb-4">
-    <div>
-      <h1 class="fw-bold mb-1">Components · Cards</h1>
-      <div class="text-muted">Task Card / Column Card / Utility Card 예시</div>
+    <div class="surface p-3 p-md-4 mb-4">
+      <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
+        <div>
+          <div class="d-flex flex-wrap gap-2 mb-2">
+            <span class="tag"><i class="bi bi-journal-text"></i> UI Kit</span>
+            <span class="tag"><i class="bi bi-folder2-open"></i> Section: Components</span>
+          </div>
+          <h1 class="h4 fw-bold mb-1">Cards</h1>
+          <div class="text-muted">.card-soft 기반 카드 스타일</div>
+        </div>
+        <div class="d-flex gap-2 flex-wrap align-items-center">
+          <a class="btn btn-outline-secondary rounded-pill" href="../index.html"><i class="bi bi-box-arrow-left me-1"></i> Back</a>
+          <a class="btn btn-outline-dark rounded-pill" href="../../index.html"><i class="bi bi-house me-1"></i> Home</a>
+        </div>
+      </div>
     </div>
 
-    <div class="d-flex gap-2">
-      <a class="btn btn-outline-secondary rounded-pill" href="../index.html">UI Kit Home</a>
-      <a class="btn btn-outline-secondary rounded-pill" href="../../index.html">Portfolio</a>
+    <div class="surface p-4">
+      <h2 class="h5 fw-bold">Demo</h2>
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card-soft p-3">
+            <div class="fw-bold">Card Soft</div>
+            <div class="text-muted">border + shadow + radius</div>
+            <button class="btn btn-sm btn-brand mt-3">Action</button>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="surface p-3">
+            <div class="fw-bold">Surface</div>
+            <div class="text-muted">공용 surface 클래스</div>
+            <button class="btn btn-sm btn-outline-brand mt-3">Action</button>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-4">
+
+      <h2 class="h5 fw-bold">Usage</h2>
+      <div class="code">&lt;div class="card-soft p-3"&gt;
+  &lt;div class="fw-bold"&gt;Title&lt;/div&gt;
+  &lt;div class="text-muted"&gt;Description&lt;/div&gt;
+&lt;/div&gt;</div>
     </div>
   </div>
-
-  <!-- 1) Task Card -->
-  <section class="kit-card p-4 mb-4">
-    <h5 class="fw-bold mb-2">Task Card (.card-task)</h5>
-    <p class="text-muted mb-4">
-      Kanban 보드에서 사용하는 기본 카드. 제목/설명/상태 dot/메타정보(날짜, 서브태스크 등)로 구성.
-    </p>
-
-    <!-- Preview -->
-    <div class="row g-3">
-      <div class="col-12 col-lg-6">
-
-        <article class="card-task">
-          <div class="task-top">
-            <div>
-              <p class="task-name">Design Login UI</p>
-              <p class="task-desc">Design • Glass + Neon</p>
-            </div>
-            <span class="dot yellow" aria-hidden="true"></span>
-          </div>
-          <div class="task-foot">
-            <span><i class="bi bi-calendar2 me-1"></i> 02/10</span>
-            <span><i class="bi bi-list-check me-1"></i> 2 subtasks</span>
-          </div>
-        </article>
-
-      </div>
-
-      <div class="col-12 col-lg-6">
-
-        <article class="card-task">
-          <div class="task-top">
-            <div>
-              <p class="task-name">Implement Todo CRUD</p>
-              <p class="task-desc">Feature • API 연결</p>
-            </div>
-            <span class="dot green" aria-hidden="true"></span>
-          </div>
-          <div class="task-foot">
-            <span><i class="bi bi-calendar2 me-1"></i> 02/14</span>
-            <button class="btn btn-sm btn-outline-secondary rounded-pill">Open</button>
-          </div>
-        </article>
-
-      </div>
-    </div>
-
-    <!-- Code -->
-    <div class="code-wrap">
-      <div class="fw-bold mb-2">Example Markup</div>
-<pre>&lt;article class="card-task"&gt;
-  &lt;div class="task-top"&gt;
-    &lt;div&gt;
-      &lt;p class="task-name"&gt;Design Login UI&lt;/p&gt;
-      &lt;p class="task-desc"&gt;Design • Glass + Neon&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;span class="dot yellow"&gt;&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="task-foot"&gt;
-    &lt;span&gt;&lt;i class="bi bi-calendar2"&gt;&lt;/i&gt; 02/10&lt;/span&gt;
-    &lt;span&gt;&lt;i class="bi bi-list-check"&gt;&lt;/i&gt; 2 subtasks&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/article&gt;</pre>
-    </div>
-  </section>
-
-
-  <!-- 2) Column Card -->
-  <section class="kit-card p-4 mb-4">
-    <h5 class="fw-bold mb-2">Column Container (.column)</h5>
-    <p class="text-muted mb-4">
-      Kanban의 컬럼 컨테이너(Backlog/In Progress/Review). 내부에 task card들이 들어갑니다.
-    </p>
-
-    <!-- Preview -->
-    <div class="row g-3">
-      <div class="col-12 col-lg-6">
-
-        <div class="column">
-          <div class="col-head">
-            <div class="col-title">Backlog</div>
-            <button class="icon-btn" style="width:34px;height:34px" aria-label="Add">
-              <i class="bi bi-plus"></i>
-            </button>
-          </div>
-
-          <article class="card-task">
-            <div class="task-top">
-              <div>
-                <p class="task-name">Write README</p>
-                <p class="task-desc">Docs • Portfolio</p>
-              </div>
-              <span class="dot blue"></span>
-            </div>
-            <div class="task-foot">
-              <span><i class="bi bi-calendar2 me-1"></i> 02/12</span>
-              <span><i class="bi bi-list-check me-1"></i> 1 subtask</span>
-            </div>
-          </article>
-
-          <article class="card-task">
-            <div class="task-top">
-              <div>
-                <p class="task-name">Add preview images</p>
-                <p class="task-desc">UI • Gallery</p>
-              </div>
-              <span class="dot yellow"></span>
-            </div>
-            <div class="task-foot">
-              <span><i class="bi bi-calendar2 me-1"></i> 02/13</span>
-              <span><i class="bi bi-list-check me-1"></i> 3 subtasks</span>
-            </div>
-          </article>
-        </div>
-
-      </div>
-
-      <div class="col-12 col-lg-6">
-
-        <div class="column">
-          <div class="col-head">
-            <div class="col-title">In Progress</div>
-            <button class="icon-btn" style="width:34px;height:34px" aria-label="Add">
-              <i class="bi bi-plus"></i>
-            </button>
-          </div>
-
-          <article class="card-task">
-            <div class="task-top">
-              <div>
-                <p class="task-name">Dashboard Layout</p>
-                <p class="task-desc">Layout • Sidebar/Topbar</p>
-              </div>
-              <span class="dot green"></span>
-            </div>
-            <div class="task-foot">
-              <span><i class="bi bi-calendar2 me-1"></i> 02/15</span>
-              <span><i class="bi bi-people me-1"></i> 2 assignees</span>
-            </div>
-          </article>
-
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Code -->
-    <div class="code-wrap">
-      <div class="fw-bold mb-2">Example Markup</div>
-<pre>&lt;div class="column"&gt;
-  &lt;div class="col-head"&gt;
-    &lt;div class="col-title"&gt;Backlog&lt;/div&gt;
-    &lt;button class="icon-btn" style="width:34px;height:34px"&gt;
-      &lt;i class="bi bi-plus"&gt;&lt;/i&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-
-  &lt;!-- task cards --&gt;
-  &lt;article class="card-task"&gt;...&lt;/article&gt;
-&lt;/div&gt;</pre>
-    </div>
-  </section>
-
-
-  <!-- 3) Utility Card (Doc style) -->
-  <section class="kit-card p-4">
-    <h5 class="fw-bold mb-2">Utility Card (Documentation)</h5>
-    <p class="text-muted mb-4">
-      UI Kit 문서 페이지에서 활용 가능한 “설명 카드” 스타일 예시.
-    </p>
-
-    <div class="p-3 rounded-4 border" style="background:#fff;">
-      <div class="fw-bold mb-1">Usage Tip</div>
-      <div class="text-muted">
-        task 카드 자체는 <code>dashboard.css</code>에 정의되어 있어도 괜찮습니다.
-        다만 재사용도가 높아지면 <code>components.css</code>로 승격시키는 게 유지보수에 유리합니다.
-      </div>
-    </div>
-  </section>
-
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

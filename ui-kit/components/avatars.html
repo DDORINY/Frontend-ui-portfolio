@@ -3,151 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Avatars - DDORINY UI Kit</title>
+  <title>Avatars - UI Kit</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- ✅ Design System -->
   <link rel="stylesheet" href="../../assets/css/theme.css">
   <link rel="stylesheet" href="../../assets/css/components.css">
-  <!-- .avatar/.mini-avatars 가 dashboard.css에 있다면 로드 -->
-  <link rel="stylesheet" href="../../assets/css/pages/dashboard.css">
 
   <style>
-    /* UI Kit doc shell */
-    .kit-shell{ max-width: 1100px; margin: 0 auto; }
-    .kit-card{
-      background:#fff;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-    }
-    pre{
-      background:#0f172a;
-      color:#e5e7eb;
-      padding:14px;
-      border-radius:12px;
-      font-size:.85rem;
-      overflow:auto;
-      margin: 0;
-    }
-    .code-wrap{ border-top:1px solid rgba(15,23,42,.06); margin-top:14px; padding-top:14px; }
-    .hint{ color: var(--muted); font-size:.92rem; }
-
-    /* Doc only: 변형 샘플 */
-    .avatar-sm{ width: 40px; height: 40px; font-size: .9rem; }
-    .avatar-lg{ width: 68px; height: 68px; font-size: 1.2rem; }
+    .shell{ max-width:1100px; margin:0 auto; }
+    .surface{ background:#fff; border:1px solid var(--border); border-radius:18px; box-shadow:var(--shadow); }
+    .tag{ display:inline-flex; align-items:center; gap:.35rem; padding:.25rem .6rem; border-radius:999px; border:1px solid var(--border); background:#fff; font-size:.85rem; color:#334155; }
+    .code{ font-family: var(--font-mono); font-size:.92rem; background:rgba(15,23,42,.04); border:1px solid var(--border); border-radius:12px; padding:12px; overflow:auto; white-space:pre; }
+    .avatar{ width:40px; height:40px; border-radius:50%; object-fit:cover; border:1px solid var(--border); }
+    .avatar-sm{ width:28px; height:28px; }
+    .avatar-lg{ width:56px; height:56px; }
+    .avatar-stack{ display:flex; }
+    .avatar-stack .avatar{ margin-left:-10px; box-shadow: 0 0 0 3px #fff; }
+    .avatar-stack .avatar:first-child{ margin-left:0; }
   </style>
 </head>
 
 <body class="bg-light">
-<div class="container py-5 kit-shell">
+  <div class="container py-4 shell">
 
-  <!-- Header -->
-  <div class="d-flex justify-content-between align-items-start mb-4">
-    <div>
-      <h1 class="fw-bold mb-1">Components · Avatars</h1>
-      <div class="text-muted">프로필 아바타 + 멤버 스택(겹침) UI</div>
-    </div>
-
-    <div class="d-flex gap-2">
-      <a class="btn btn-outline-secondary rounded-pill" href="../index.html">UI Kit Home</a>
-      <a class="btn btn-outline-secondary rounded-pill" href="../../index.html">Portfolio</a>
-    </div>
-  </div>
-
-  <!-- 1) Profile Avatar -->
-  <section class="kit-card p-4 mb-4">
-    <h5 class="fw-bold mb-2">Profile Avatar (.avatar)</h5>
-    <p class="text-muted mb-4">
-      사이드바 상단에서 쓰는 기본 프로필 아바타. 보통 이니셜(첫 글자) 또는 아이콘을 넣습니다.
-    </p>
-
-    <div class="d-flex align-items-center gap-3 flex-wrap">
-      <div class="d-flex align-items-center gap-3 p-3 rounded-4 border bg-white">
-        <div class="avatar" aria-hidden="true">M</div>
+    <div class="surface p-3 p-md-4 mb-4">
+      <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
         <div>
-          <div class="fw-bold">Miranda</div>
-          <div class="hint">Lead Designer • Online</div>
-        </div>
-      </div>
-
-      <!-- Size variations (doc only) -->
-      <div class="d-flex align-items-center gap-3 p-3 rounded-4 border bg-white">
-        <div class="avatar avatar-sm" aria-hidden="true">S</div>
-        <div class="avatar" aria-hidden="true">M</div>
-        <div class="avatar avatar-lg" aria-hidden="true">L</div>
-      </div>
-
-      <!-- Icon inside -->
-      <div class="d-flex align-items-center gap-3 p-3 rounded-4 border bg-white">
-        <div class="avatar" aria-hidden="true"><i class="bi bi-person-fill"></i></div>
-        <div class="hint">icon inside avatar</div>
-      </div>
-    </div>
-
-    <div class="code-wrap">
-      <div class="fw-bold mb-2">Example Markup</div>
-<pre>&lt;div class="avatar"&gt;M&lt;/div&gt;
-
-&lt;div class="avatar"&gt;
-  &lt;i class="bi bi-person-fill"&gt;&lt;/i&gt;
-&lt;/div&gt;</pre>
-    </div>
-  </section>
-
-  <!-- 2) Mini Avatars Stack -->
-  <section class="kit-card p-4">
-    <h5 class="fw-bold mb-2">Member Stack (.mini-avatars)</h5>
-    <p class="text-muted mb-4">
-      카드/헤더 영역에서 “참여자”를 겹쳐서 표시하는 UI. (스팬이 겹치도록 margin-left 음수 사용)
-    </p>
-
-    <div class="d-flex align-items-center gap-4 flex-wrap">
-      <div class="p-3 rounded-4 border bg-white">
-        <div class="fw-bold mb-2">Default</div>
-        <div class="mini-avatars" aria-hidden="true">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-
-      <div class="p-3 rounded-4 border bg-white">
-        <div class="fw-bold mb-2">Two members</div>
-        <div class="mini-avatars" aria-hidden="true">
-          <span></span><span></span>
-        </div>
-      </div>
-
-      <div class="p-3 rounded-4 border bg-white">
-        <div class="fw-bold mb-2">With count badge (pattern)</div>
-        <div class="d-flex align-items-center gap-2">
-          <div class="mini-avatars" aria-hidden="true">
-            <span></span><span></span><span></span>
+          <div class="d-flex flex-wrap gap-2 mb-2">
+            <span class="tag"><i class="bi bi-journal-text"></i> UI Kit</span>
+            <span class="tag"><i class="bi bi-folder2-open"></i> Section: Components</span>
           </div>
-          <span class="badge rounded-pill text-bg-secondary">+4</span>
+          <h1 class="h4 fw-bold mb-1">Avatars</h1>
+          <div class="text-muted">프로필 이미지 / 이니셜 / 스택</div>
+        </div>
+        <div class="d-flex gap-2 flex-wrap align-items-center">
+          <a class="btn btn-outline-secondary rounded-pill" href="../index.html"><i class="bi bi-box-arrow-left me-1"></i> Back</a>
+          <a class="btn btn-outline-dark rounded-pill" href="../../index.html"><i class="bi bi-house me-1"></i> Home</a>
         </div>
       </div>
     </div>
 
-    <div class="code-wrap">
-      <div class="fw-bold mb-2">Example Markup</div>
-<pre>&lt;div class="mini-avatars"&gt;
-  &lt;span&gt;&lt;/span&gt;
-  &lt;span&gt;&lt;/span&gt;
-  &lt;span&gt;&lt;/span&gt;
-&lt;/div&gt;
+    <div class="surface p-4">
+      <h2 class="h5 fw-bold">Demo</h2>
 
-&lt;!-- +N 표시 패턴 --&gt;
-&lt;div class="d-flex align-items-center gap-2"&gt;
-  &lt;div class="mini-avatars"&gt;...&lt;/div&gt;
-  &lt;span class="badge rounded-pill text-bg-secondary"&gt;+4&lt;/span&gt;
-&lt;/div&gt;</pre>
+      <div class="d-flex align-items-center gap-3 flex-wrap mb-3">
+        <img class="avatar avatar-sm" src="https://picsum.photos/seed/a1/120/120" alt="a1">
+        <img class="avatar" src="https://picsum.photos/seed/a2/120/120" alt="a2">
+        <img class="avatar avatar-lg" src="https://picsum.photos/seed/a3/120/120" alt="a3">
+
+        <div class="d-flex align-items-center gap-2">
+          <div class="avatar d-flex align-items-center justify-content-center fw-bold" style="background:rgba(37,99,235,.12); color:var(--brand);">
+            KJ
+          </div>
+          <div class="text-muted">Initial Avatar</div>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="fw-bold">Avatar Stack</div>
+        <div class="avatar-stack">
+          <img class="avatar" src="https://picsum.photos/seed/s1/120/120" alt="s1">
+          <img class="avatar" src="https://picsum.photos/seed/s2/120/120" alt="s2">
+          <img class="avatar" src="https://picsum.photos/seed/s3/120/120" alt="s3">
+          <div class="avatar d-flex align-items-center justify-content-center" style="background:#fff;">
+            <span class="text-muted">+3</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-4">
+
+      <h2 class="h5 fw-bold">Usage</h2>
+      <div class="code">&lt;img class="avatar" src="..." alt="profile"&gt;
+&lt;img class="avatar avatar-sm" src="..."&gt;
+&lt;img class="avatar avatar-lg" src="..."&gt;
+
+&lt;div class="avatar d-flex align-items-center justify-content-center fw-bold"&gt;KJ&lt;/div&gt;
+
+&lt;div class="avatar-stack"&gt;
+  &lt;img class="avatar" ...&gt;
+  &lt;img class="avatar" ...&gt;
+&lt;/div&gt;</div>
+
+      <hr class="my-4">
+
+      <h2 class="h5 fw-bold">Guidelines</h2>
+      <ul class="text-muted mb-0">
+        <li>실제 프로젝트에선 avatar 스타일을 components.css로 옮겨 재사용 권장</li>
+        <li>스택은 margin-left(-) + 흰색 outline로 겹침 표현</li>
+      </ul>
     </div>
-  </section>
 
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </div>
 </body>
 </html>

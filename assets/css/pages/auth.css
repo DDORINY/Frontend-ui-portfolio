@@ -1,0 +1,19 @@
+/* auth.css — Auth pages only */
+
+.auth-wrap{
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.auth-card{
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.auth-hero{
+  background:
+    radial-gradient(800px 280px at 10% 0%, rgba(37,99,235,.12), transparent 60%),
+    linear-gradient(180deg, rgba(15,23,42,.03), transparent);
+  border-radius: var(--r-xl);
+}

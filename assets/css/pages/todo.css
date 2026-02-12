@@ -1,0 +1,27 @@
+/* todo.css — Todo pages only */
+
+.todo-layout{
+  display:grid;
+  grid-template-columns: 1fr 320px;
+  gap: 16px;
+}
+
+@media (max-width: 992px){
+  .todo-layout{ grid-template-columns: 1fr; }
+}
+
+.todo-item{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background:#fff;
+}
+
+.todo-item.is-done{
+  opacity: .72;
+  text-decoration: line-through;
+}

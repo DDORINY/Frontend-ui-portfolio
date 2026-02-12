@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kanban Board v2 - UI Kit</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+
+  <style>
+    .shell{ max-width:1100px; margin:0 auto; }
+    .surface{ background:#fff; border:1px solid var(--border); border-radius:18px; box-shadow:var(--shadow); }
+    .tag{ display:inline-flex; align-items:center; gap:.35rem; padding:.25rem .6rem; border-radius:999px; border:1px solid var(--border); background:#fff; font-size:.85rem; color:#334155; }
+    .code{ font-family: var(--font-mono); font-size:.92rem; background:rgba(15,23,42,.04); border:1px solid var(--border); border-radius:12px; padding:12px; overflow:auto; white-space:pre; }
+    .board{
+      display:grid;
+      gap:12px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 992px){
+      .board{ grid-template-columns: 1fr 1fr 1fr; }
+    }
+    .colx{
+      background: rgba(15,23,42,.02);
+      border:1px solid rgba(15,23,42,.08);
+      border-radius: var(--r-xl);
+      padding: 12px;
+    }
+    .colx .head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom: 10px;
+    }
+    .task{
+      background:#fff;
+      border:1px solid rgba(15,23,42,.10);
+      border-radius: var(--r-lg);
+      padding: 12px;
+      box-shadow: var(--shadow);
+      display:grid;
+      gap:8px;
+    }
+    .task .title{ font-weight:800; }
+    .task .meta{ display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  </style>
+</head>
+
+<body class="bg-light">
+  <div class="container py-4 shell">
+
+    <div class="surface p-3 p-md-4 mb-4">
+      <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
+        <div>
+          <div class="d-flex flex-wrap gap-2 mb-2">
+            <span class="tag"><i class="bi bi-journal-text"></i> UI Kit</span>
+            <span class="tag"><i class="bi bi-folder2-open"></i> Section: Patterns</span>
+            <span class="tag"><i class="bi bi-stars"></i> v2</span>
+          </div>
+          <h1 class="h4 fw-bold mb-1">Kanban Board v2</h1>
+          <div class="text-muted">3 columns + task cards + quick actions</div>
+        </div>
+        <div class="d-flex gap-2 flex-wrap align-items-center">
+          <a class="btn btn-outline-secondary rounded-pill" href="../index.html"><i class="bi bi-box-arrow-left me-1"></i> Back</a>
+          <a class="btn btn-outline-dark rounded-pill" href="../../index.html"><i class="bi bi-house me-1"></i> Home</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="surface p-4">
+      <div class="alert alert-info mb-4">
+        <div class="fw-bold mb-1">v2 Changes</div>
+        <ul class="mb-0">
+          <li>컬럼 자체를 “컨테이너 카드”로 만들고, task는 card-outline/soft를 조합</li>
+          <li>컬럼 헤더에 quick add / filter 버튼 배치</li>
+        </ul>
+      </div>
+
+      <h2 class="h6 fw-bold mb-2">Demo</h2>
+
+      <div class="board">
+        <div class="colx">
+          <div class="head">
+            <div class="fw-bold">Todo <span class="text-muted">(3)</span></div>
+            <div class="d-flex gap-2">
+              <button class="btn btn-ghost btn-icon btn-sm" aria-label="filter"><i class="bi bi-funnel"></i></button>
+              <button class="btn btn-soft btn-icon btn-sm" aria-label="add"><i class="bi bi-plus-lg"></i></button>
+            </div>
+          </div>
+
+          <div class="d-grid gap-2">
+            <div class="task">
+              <div class="title">Board v2 UI polish</div>
+              <div class="text-muted" style="font-size:.92rem;">카드 간격 / 버튼 규칙 정리</div>
+              <div class="meta">
+                <span class="chip"><i class="bi bi-flag"></i> P1</span>
+                <span class="chip"><i class="bi bi-person"></i> kim</span>
+                <span class="chip"><i class="bi bi-clock"></i> today</span>
+              </div>
+              <div class="d-flex gap-2">
+                <button class="btn btn-sm btn-ghost rounded-pill">View</button>
+                <button class="btn btn-sm btn-outline-brand rounded-pill">Move</button>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="title">Create tokens-v2</div>
+              <div class="text-muted" style="font-size:.92rem;">radius/spacing 확장</div>
+              <div class="meta">
+                <span class="chip"><i class="bi bi-flag"></i> P2</span>
+                <span class="chip"><i class="bi bi-person"></i> park</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="colx">
+          <div class="head">
+            <div class="fw-bold">Doing <span class="text-muted">(2)</span></div>
+            <div class="d-flex gap-2">
+              <button class="btn btn-ghost btn-icon btn-sm" aria-label="filter"><i class="bi bi-funnel"></i></button>
+              <button class="btn btn-soft btn-icon btn-sm" aria-label="add"><i class="bi bi-plus-lg"></i></button>
+            </div>
+          </div>
+
+          <div class="d-grid gap-2">
+            <div class="task">
+              <div class="title">Buttons v2 document</div>
+              <div class="text-muted" style="font-size:.92rem;">ghost/soft/split 패턴</div>
+              <div class="meta">
+                <span class="chip"><i class="bi bi-flag"></i> P1</span>
+                <span class="chip"><i class="bi bi-person"></i> kim</span>
+              </div>
+              <div class="d-flex gap-2">
+                <button class="btn btn-sm btn-brand rounded-pill">Primary</button>
+                <button class="btn btn-sm btn-ghost rounded-pill">Later</button>
+              </div>
+            </div>
+
+            <div class="task">
+              <div class="title">Topbar v2 pattern</div>
+              <div class="text-muted" style="font-size:.92rem;">search + actions</div>
+              <div class="meta">
+                <span class="chip"><i class="bi bi-flag"></i> P2</span>
+                <span class="chip"><i class="bi bi-person"></i> lee</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="colx">
+          <div class="head">
+            <div class="fw-bold">Done <span class="text-muted">(1)</span></div>
+            <div class="d-flex gap-2">
+              <button class="btn btn-ghost btn-icon btn-sm" aria-label="filter"><i class="bi bi-funnel"></i></button>
+              <button class="btn btn-soft btn-icon btn-sm" aria-label="add"><i class="bi bi-plus-lg"></i></button>
+            </div>
+          </div>
+
+          <div class="d-grid gap-2">
+            <div class="task">
+              <div class="title">Board v2 pages</div>
+              <div class="text-muted" style="font-size:.92rem;">list/detail/write 완료</div>
+              <div class="meta">
+                <span class="chip"><i class="bi bi-check2-circle"></i> shipped</span>
+              </div>
+              <div class="d-flex gap-2">
+                <button class="btn btn-sm btn-outline-brand rounded-pill">Review</button>
+                <button class="btn btn-sm btn-ghost rounded-pill">Archive</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hr-soft"></div>
+
+      <h2 class="h6 fw-bold">Usage</h2>
+      <div class="code">&lt;div class="board"&gt;
+  &lt;div class="colx"&gt;
+    &lt;div class="head"&gt;...buttons...&lt;/div&gt;
+    &lt;div class="task"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+
+      <div class="hr-soft"></div>
+
+      <h2 class="h6 fw-bold">Guidelines</h2>
+      <ul class="text-muted mb-0">
+        <li>컬럼은 “컨테이너 카드”, task는 “콘텐츠 카드”로 계층 분리</li>
+        <li>task 내부 버튼은 2개 이하(Primary 1개 + Secondary 1개)</li>
+        <li>실제 구현 시 drag&drop과 상태 변경은 JS/백엔드로 연결</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

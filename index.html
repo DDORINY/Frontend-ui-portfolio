@@ -1,369 +1,350 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>Frontend UI Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Frontend UI Portfolio - DDORINY</title>
 
-  <!-- Bootstrap / Swiper -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- (아이콘 쓰고 있으니) Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/components.css">
 
   <style>
-    :root{
-      --bg: #f6f7fb;
-      --card: #ffffff;
-      --text: #0f172a;
-      --muted: #64748b;
-      --border: rgba(15, 23, 42, .08);
-      --shadow: 0 18px 40px rgba(15, 23, 42, .10);
-      --shadow-soft: 0 12px 30px rgba(15, 23, 42, .08);
-      --radius: 18px;
-      --accent: #20c997;
-      --accent2: #0ea5e9;
+    .shell{ max-width:1200px; margin:0 auto; }
+    .card-surface{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:20px;
+      box-shadow:var(--shadow);
     }
-
-    body{
-      background: radial-gradient(900px 520px at 18% 10%, rgba(32,201,151,.14), transparent 60%),
-                  radial-gradient(900px 520px at 82% 0%, rgba(14,165,233,.14), transparent 60%),
-                  var(--bg);
-      color: var(--text);
-    }
-
-    /* ====== Top Nav (simple) ====== */
-    .topbar{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(246,247,251,.75);
-      border-bottom: 1px solid rgba(15,23,42,.06);
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:.6rem;
-      text-decoration:none;
-      color: var(--text);
-      font-weight: 800;
-      letter-spacing: -.02em;
-    }
-    .brand .mark{
-      width: 36px; height: 36px;
-      border-radius: 12px;
-      display:grid;
-      place-items:center;
-      background: rgba(32,201,151,.14);
-      border: 1px solid rgba(32,201,151,.18);
-      box-shadow: 0 12px 26px rgba(32,201,151,.12);
-      font-weight: 900;
-      color: #0b3b2a;
-    }
-
-    /* ====== Hero ====== */
-    .hero{ padding: 44px 0 22px; }
-    .hero-card{
-      background: rgba(255,255,255,.75);
-      border: 1px solid rgba(15,23,42,.08);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      position: relative;
-    }
-    .hero-card::before{
-      content:"";
-      position:absolute; inset: -2px;
-      background: radial-gradient(700px 220px at 15% 20%, rgba(32,201,151,.30), transparent 60%),
-                  radial-gradient(650px 220px at 85% 10%, rgba(14,165,233,.26), transparent 60%);
-      opacity: .55;
-      pointer-events:none;
-    }
-    .hero-inner{ position: relative; padding: 28px; }
-    .hero h1{
-      font-weight: 900;
-      letter-spacing: -.03em;
-      margin: 0 0 8px;
-    }
-    .hero p{
-      margin: 0;
-      color: var(--muted);
-      max-width: 58ch;
-    }
-
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      gap: .5rem;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.85);
-      border: 1px solid rgba(15,23,42,.08);
-      box-shadow: var(--shadow-soft);
-      color: var(--muted);
-      font-size: .92rem;
-      white-space: nowrap;
-    }
-
-    .btn-accent{
-      background: linear-gradient(180deg, var(--accent), #14b8a6);
-      border: 0;
-      color: #06261c;
-      font-weight: 800;
-      border-radius: 999px;
-      padding: 10px 14px;
-      box-shadow: 0 16px 30px rgba(32,201,151,.18);
-    }
-    .btn-accent:hover{ filter: brightness(1.02); }
-
-    /* ====== Section shell ====== */
-    .section-title{
-      display:flex;
-      align-items:end;
-      justify-content: space-between;
-      gap: 12px;
-      margin: 26px 0 12px;
-    }
-    .section-title h3{
-      margin: 0;
-      font-weight: 900;
-      letter-spacing: -.02em;
-    }
-    .section-title .sub{
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-    /* ====== Swiper cards ====== */
-    .ui-swiper{
-      padding: 10px 6px 40px;
-      position: relative;
-    }
-
-    .ui-card{
-      display:block;
-      text-decoration:none;
-      color: inherit;
-      background: rgba(255,255,255,.92);
-      border-radius: var(--radius);
+    .tile{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      transition: transform .12s ease, box-shadow .12s ease;
       overflow:hidden;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(15,23,42,.08);
-      transition: transform .18s ease, box-shadow .18s ease;
+      height:100%;
     }
-    .ui-card:hover{
-      transform: translateY(-3px);
-      box-shadow: 0 22px 46px rgba(15,23,42,.14);
+    .tile:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(15,23,42,.10);
     }
-
-    .ui-thumb{
-      position: relative;
-      height: 168px;
-      overflow:hidden;
+    .thumb{
+      width:100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
       background: rgba(15,23,42,.04);
     }
-    .ui-card img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
-      transform: scale(1.02);
-      transition: transform .22s ease;
+    .tag{
+      display:inline-flex; align-items:center; gap:.35rem;
+      padding:.25rem .6rem; border-radius:999px;
+      border:1px solid var(--border);
+      background:#fff;
+      font-size:.85rem;
+      color:#334155;
     }
-    .ui-card:hover img{ transform: scale(1.06); }
-
-    .ui-thumb::after{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 52%, rgba(0,0,0,.10));
-      pointer-events:none;
-    }
-
-    .ui-card-body{ padding: 12px 14px 14px; }
-    .ui-title{ font-weight: 900; letter-spacing: -.01em; }
-    .ui-desc{ font-size:.9rem; color: var(--muted); margin-top: 3px; }
-
-    /* Swiper pagination */
-    .ui-swiper .swiper-pagination{ bottom: 0 !important; }
-    .ui-swiper .swiper-pagination-bullet{ opacity: .35; }
-    .ui-swiper .swiper-pagination-bullet-active{ opacity: 1; }
-
-    /* Swiper nav buttons */
-    .ui-swiper .swiper-button-prev,
-    .ui-swiper .swiper-button-next{
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.92);
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(15,23,42,.08);
-    }
-    .ui-swiper .swiper-button-prev::after,
-    .ui-swiper .swiper-button-next::after{
-      font-size: 16px;
-      font-weight: 800;
-      color: #0f172a;
-    }
-
-    /* ====== UI Kit CTA ====== */
-    .cta{
-      margin-top: 22px;
-      background: rgba(255,255,255,.85);
-      border: 1px solid rgba(15,23,42,.08);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      padding: 18px;
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-    .cta h4{ margin:0; font-weight: 900; letter-spacing: -.02em; }
-    .cta p{ margin: 2px 0 0; color: var(--muted); }
-
-    .footer{
-      margin: 28px 0 8px;
-      color: rgba(100,116,139,.85);
-      font-size: .9rem;
-      text-align:center;
+    .muted{ color:#64748b; }
+    .hero-bg{
+      background:
+        radial-gradient(1200px 380px at 10% 0%, rgba(13,110,253,.10), transparent 60%),
+        radial-gradient(900px 300px at 90% 20%, rgba(111,66,193,.10), transparent 60%),
+        linear-gradient(180deg, rgba(15,23,42,.03), transparent);
     }
   </style>
 </head>
 
-<body>
-  <!-- Topbar -->
-  <div class="topbar">
-    <div class="container py-3 d-flex align-items-center justify-content-between">
-      <a class="brand" href="#">
-        <span class="mark">D</span>
-        <span>DDORINY · Frontend UI Portfolio</span>
-      </a>
+<body class="bg-light">
+  <div class="container py-5 shell">
 
+    <!-- Top -->
+    <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 mb-4">
+      <div>
+        <h1 class="fw-bold mb-1">Frontend UI Portfolio</h1>
+        <div class="muted">Bootstrap 5 UI 템플릿 라이브러리 · UI Kit 문서 · 재사용 가능한 패턴</div>
+        <div class="d-flex flex-wrap gap-2 mt-2">
+          <span class="tag"><i class="bi bi-bootstrap"></i> Bootstrap 5</span>
+          <span class="tag"><i class="bi bi-palette"></i> theme.css (tokens)</span>
+          <span class="tag"><i class="bi bi-box"></i> components.css</span>
+          <span class="tag"><i class="bi bi-layout-text-sidebar"></i> samples + ui-kit</span>
+        </div>
+      </div>
       <div class="d-flex gap-2">
-        <a class="btn btn-outline-secondary rounded-pill" href="ui-kit/index.html">UI Kit</a>
-        <a class="btn btn-accent" href="#samples">UI Samples</a>
+        <a class="btn btn-outline-dark rounded-pill" href="ui-kit/index.html">
+          <i class="bi bi-journal-text me-1"></i> UI Kit
+        </a>
+        <a class="btn btn-outline-secondary rounded-pill" href="#usage">
+          <i class="bi bi-play-circle me-1"></i> Usage
+        </a>
       </div>
     </div>
-  </div>
 
-  <div class="container">
     <!-- Hero -->
-    <section class="hero">
-      <div class="hero-card">
-        <div class="hero-inner">
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="chip"><span aria-hidden="true">🧱</span> Bootstrap 5</span>
-            <span class="chip"><span aria-hidden="true">🧩</span> Components / Patterns</span>
-            <span class="chip"><span aria-hidden="true">🎛️</span> Design tokens</span>
-            <span class="chip"><span aria-hidden="true">📚</span> UI Kit docs</span>
-          </div>
-
-          <h1>Frontend UI Portfolio</h1>
-          <p>
-            Bootstrap 기반 UI 레이아웃 및 재사용 가능한 컴포넌트 설계 실습 모음.
-            샘플 페이지와 UI Kit 문서로 “디자인 시스템” 형태로 정리합니다.
+    <div class="card-surface hero-bg p-4 p-md-5 mb-4">
+      <div class="row align-items-center g-4">
+        <div class="col-12 col-lg-7">
+          <h2 class="fw-bold mb-2">Reusable Template Library</h2>
+          <p class="muted mb-3">
+            Auth / Dashboard / Todo / Board / Shop 템플릿을 “샘플(결과물)”과 “UI Kit(문서)”로 분리해 관리합니다.
+            정적 미리보기(더블클릭) 가능하며, 추후 Flask/Jinja 분리도 쉬운 구조를 목표로 합니다.
           </p>
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-sm btn-outline-dark rounded-pill" href="#auth">Auth</a>
+            <a class="btn btn-sm btn-outline-dark rounded-pill" href="#dashboard">Dashboard</a>
+            <a class="btn btn-sm btn-outline-dark rounded-pill" href="#todo">Todo</a>
+            <a class="btn btn-sm btn-outline-dark rounded-pill" href="#board">Board</a>
+            <a class="btn btn-sm btn-outline-dark rounded-pill" href="#shop">Shop</a>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <!-- UI Samples -->
-    <div id="samples" class="section-title">
-      <div>
-        <h3>UI Samples</h3>
-        <div class="sub">클릭하면 샘플 페이지로 이동합니다.</div>
-      </div>
-      <div class="sub d-none d-md-block">Auto slide · Hover pause · Navigation</div>
-    </div>
-
-    <div class="swiper ui-swiper">
-      <div class="swiper-wrapper">
-
-        <div class="swiper-slide">
-          <a href="samples/auth/login-v1.html" class="ui-card">
-            <div class="ui-thumb">
-              <img src="assets/img/previews/login-v1.png" alt="Login v1 preview" loading="lazy">
+        <div class="col-12 col-lg-5">
+          <div class="card-surface p-3 p-md-4">
+            <div class="fw-bold mb-2">Repository Structure</div>
+            <div class="muted" style="line-height:1.7;">
+              <div>• <b>samples/</b> : 페이지 템플릿 결과물</div>
+              <div>• <b>ui-kit/</b> : Foundations · Components · Patterns</div>
+              <div>• <b>assets/</b> : theme(토큰) / components / pages(전용)</div>
             </div>
-            <div class="ui-card-body">
-              <div class="ui-title">Login v1</div>
-              <div class="ui-desc">Glass + Neon Auth UI</div>
-            </div>
-          </a>
+          </div>
         </div>
-
-        <div class="swiper-slide">
-          <a href="samples/auth/signup-v1.html" class="ui-card">
-            <div class="ui-thumb">
-              <img src="assets/img/previews/signup-v1.png" alt="Signup v1 preview" loading="lazy">
-            </div>
-            <div class="ui-card-body">
-              <div class="ui-title">Signup v1</div>
-              <div class="ui-desc">Account Register UI</div>
-            </div>
-          </a>
-        </div>
-
-        <div class="swiper-slide">
-          <a href="samples/dashboard/dashboard-v1.html" class="ui-card">
-            <div class="ui-thumb">
-              <img src="assets/img/previews/dashboard-v1.png" alt="Dashboard v1 preview" loading="lazy">
-            </div>
-            <div class="ui-card-body">
-              <div class="ui-title">Dashboard v1</div>
-              <div class="ui-desc">Admin Dashboard UI</div>
-            </div>
-          </a>
-        </div>
-
-      </div>
-
-      <div class="swiper-button-prev" aria-label="Previous"></div>
-      <div class="swiper-button-next" aria-label="Next"></div>
-      <div class="swiper-pagination"></div>
-    </div>
-
-    <!-- UI Kit CTA -->
-    <div class="cta">
-      <div>
-        <h4>UI Kit</h4>
-        <p>Tokens · Components · Patterns 문서로 재사용 가능한 UI를 정리해요.</p>
-      </div>
-      <div class="d-flex gap-2">
-        <a href="ui-kit/index.html" class="btn btn-dark rounded-pill px-4">
-          <i class="bi bi-journal-text me-1"></i> UI Kit 문서 보기
-        </a>
-        <a href="ui-kit/components/tables.html" class="btn btn-outline-secondary rounded-pill px-4">
-          <i class="bi bi-table me-1"></i> Tables
-        </a>
       </div>
     </div>
 
-    <div class="footer">© 2026 DDORINY • Frontend UI Portfolio</div>
+    <!-- Featured -->
+    <div class="d-flex align-items-end justify-content-between gap-3 mb-2">
+      <h3 class="fw-bold mb-0">Featured</h3>
+      <div class="muted">대표 템플릿 카드 (프리뷰는 assets/img/previews/에 저장)</div>
+    </div>
+
+    <div class="row g-3 mb-5">
+      <!-- ✅ 프리뷰 파일이 아직 없어도 layout은 유지됨(alt 텍스트로 fallback) -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="tile">
+          <img class="thumb" src="assets/img/previews/auth-login-v1.png" alt="auth-login-v1">
+          <div class="p-3">
+            <div class="d-flex justify-content-between align-items-start gap-2">
+              <div>
+                <div class="fw-bold">Login v1</div>
+                <div class="muted" style="font-size:.9rem;">Auth · Card layout</div>
+              </div>
+              <span class="tag"><i class="bi bi-person"></i> Auth</span>
+            </div>
+            <div class="d-grid mt-3">
+              <a class="btn btn-outline-primary rounded-3" href="samples/auth/login-v1.html">Open</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="tile">
+          <img class="thumb" src="assets/img/previews/dashboard-v1.png" alt="dashboard-v1">
+          <div class="p-3">
+            <div class="d-flex justify-content-between align-items-start gap-2">
+              <div>
+                <div class="fw-bold">Dashboard v1</div>
+                <div class="muted" style="font-size:.9rem;">Dashboard · KPI</div>
+              </div>
+              <span class="tag"><i class="bi bi-grid"></i> Dashboard</span>
+            </div>
+            <div class="d-grid mt-3">
+              <a class="btn btn-outline-primary rounded-3" href="samples/dashboard/dashboard-v1.html">Open</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="tile">
+          <img class="thumb" src="assets/img/previews/board-list-v1.png" alt="board-list-v1">
+          <div class="p-3">
+            <div class="d-flex justify-content-between align-items-start gap-2">
+              <div>
+                <div class="fw-bold">Board List v1</div>
+                <div class="muted" style="font-size:.9rem;">Board · List</div>
+              </div>
+              <span class="tag"><i class="bi bi-chat-dots"></i> Board</span>
+            </div>
+            <div class="d-grid mt-3">
+              <a class="btn btn-outline-primary rounded-3" href="samples/board/board-list-v1.html">Open</a>
+            </div>
+          </div>
+        </div>
+      </div>
+                <!-- Board List v2 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="tile">
+            <img class="thumb" src="assets/img/previews/board-list-v2.png" alt="board-list-v2">
+            <div class="p-3">
+              <div class="d-flex justify-content-between align-items-start gap-2">
+                <div>
+                  <div class="fw-bold">Board List v2</div>
+                  <div class="muted" style="font-size:.9rem;">Board · Filters · Cards</div>
+                </div>
+                <span class="tag"><i class="bi bi-chat-dots"></i> Board</span>
+              </div>
+              <div class="d-grid mt-3">
+                <a class="btn btn-outline-primary rounded-3" href="samples/board/board-list-v2.html">Open</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Board Detail v2 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="tile">
+            <img class="thumb" src="assets/img/previews/board-detail-v2.png" alt="board-detail-v2">
+            <div class="p-3">
+              <div class="d-flex justify-content-between align-items-start gap-2">
+                <div>
+                  <div class="fw-bold">Board Detail v2</div>
+                  <div class="muted" style="font-size:.9rem;">Board · Sidebar layout</div>
+                </div>
+                <span class="tag"><i class="bi bi-file-text"></i> Board</span>
+              </div>
+              <div class="d-grid mt-3">
+                <a class="btn btn-outline-primary rounded-3" href="samples/board/board-detail-v2.html">Open</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Board Write v2 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="tile">
+            <img class="thumb" src="assets/img/previews/board-write-v2.png" alt="board-write-v2">
+            <div class="p-3">
+              <div class="d-flex justify-content-between align-items-start gap-2">
+                <div>
+                  <div class="fw-bold">Board Write v2</div>
+                  <div class="muted" style="font-size:.9rem;">Editor · Preview · Sticky</div>
+                </div>
+                <span class="tag"><i class="bi bi-pencil-square"></i> Board</span>
+              </div>
+              <div class="d-grid mt-3">
+                <a class="btn btn-outline-primary rounded-3" href="samples/board/board-write-v2.html">Open</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+    <!-- Categories -->
+    <div class="d-flex align-items-end justify-content-between gap-3 mb-2">
+      <h3 class="fw-bold mb-0">Categories</h3>
+      <div class="muted">샘플 모아보기</div>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-12 col-md-6 col-lg-4" id="auth">
+        <div class="tile p-4">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <div class="fw-bold"><i class="bi bi-person me-1"></i> Auth</div>
+            <span class="tag">samples/auth</span>
+          </div>
+          <div class="muted mb-3">Login · Signup · Reset</div>
+          <div class="d-grid gap-2">
+            <a class="btn btn-outline-dark rounded-3" href="samples/auth/login-v1.html">Login v1</a>
+            <a class="btn btn-outline-dark rounded-3" href="samples/auth/signup-v1.html">Signup v1</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4" id="dashboard">
+        <div class="tile p-4">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <div class="fw-bold"><i class="bi bi-grid me-1"></i> Dashboard</div>
+            <span class="tag">samples/dashboard</span>
+          </div>
+          <div class="muted mb-3">KPI · Tables · Layouts</div>
+          <div class="d-grid gap-2">
+            <a class="btn btn-outline-dark rounded-3" href="samples/dashboard/dashboard-v1.html">Dashboard v1</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4" id="todo">
+        <div class="tile p-4">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <div class="fw-bold"><i class="bi bi-check2-square me-1"></i> Todo</div>
+            <span class="tag">samples/todo</span>
+          </div>
+          <div class="muted mb-3">CRUD UI · Filters</div>
+          <div class="d-grid gap-2">
+            <a class="btn btn-outline-dark rounded-3" href="samples/todo/todo-v1.html">Todo v1</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4" id="board">
+        <div class="tile p-4">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <div class="fw-bold"><i class="bi bi-chat-dots me-1"></i> Board</div>
+            <span class="tag">samples/board</span>
+          </div>
+          <div class="muted mb-3">List · Detail · Write</div>
+          <div class="d-grid gap-2">
+                <!-- v1 -->
+          <a class="btn btn-outline-dark rounded-3" href="samples/board/board-list-v1.html">Board List v1</a>
+          <a class="btn btn-outline-dark rounded-3" href="samples/board/board-detail-v1.html">Board Detail v1</a>
+          <a class="btn btn-outline-dark rounded-3" href="samples/board/board-write-v1.html">Board Write v1</a>
+
+          <!-- v2 -->
+          <hr class="my-2">
+
+          <a class="btn btn-outline-dark rounded-3" href="samples/board/board-list-v2.html">Board List v2</a>
+          <a class="btn btn-outline-dark rounded-3" href="samples/board/board-detail-v2.html">Board Detail v2</a>
+          <a class="btn btn-outline-dark rounded-3" href="samples/board/board-write-v2.html">Board Write v2</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="col-12 col-md-6 col-lg-4" id="shop">
+        <div class="tile p-4">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <div class="fw-bold"><i class="bi bi-bag me-1"></i> Shop</div>
+            <span class="tag">samples/shop</span>
+          </div>
+          <div class="muted mb-3">Grid · Product card</div>
+          <div class="d-grid gap-2">
+            <a class="btn btn-outline-dark rounded-3" href="samples/shop/shop-v1.html">Shop v1</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="tile p-4">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <div class="fw-bold"><i class="bi bi-journal-text me-1"></i> UI Kit</div>
+            <span class="tag">ui-kit/</span>
+          </div>
+          <div class="muted mb-3">Foundations · Components · Patterns</div>
+          <div class="d-grid gap-2">
+            <a class="btn btn-outline-primary rounded-3" href="ui-kit/index.html">Open UI Kit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Usage -->
+    <div class="card-surface p-4 mt-5" id="usage">
+      <h4 class="fw-bold mb-2">Usage</h4>
+      <div class="muted mb-3">
+        정적 HTML 기반입니다. <b>index.html</b>을 브라우저로 열어 전체 프리뷰를 확인하세요.
+      </div>
+      <ul class="muted mb-0">
+        <li><b>theme.css</b> : 디자인 토큰(변수)</li>
+        <li><b>components.css</b> : 재사용 컴포넌트</li>
+        <li><b>pages/*.css</b> : 페이지 전용 스타일</li>
+        <li><b>ui-kit/</b> : 문서(규칙/샘플/스니펫)</li>
+      </ul>
+    </div>
+
+    <div class="text-center text-muted mt-4">
+      <small>DDORINY · Frontend UI Portfolio</small>
+    </div>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
-    const swiper = new Swiper(".ui-swiper", {
-      loop: true,
-      speed: 600,
-      spaceBetween: 18,
-      autoplay: { delay: 2200, disableOnInteraction: false },
-      pagination: { el: ".ui-swiper .swiper-pagination", clickable: true },
-      navigation: { nextEl: ".ui-swiper .swiper-button-next", prevEl: ".ui-swiper .swiper-button-prev" },
-      breakpoints: {
-        0:   { slidesPerView: 1.12 },
-        576: { slidesPerView: 2.05 },
-        992: { slidesPerView: 3.05 }
-      }
-    });
-
-    // Hover pause
-    const el = document.querySelector(".ui-swiper");
-    el.addEventListener("mouseenter", () => swiper.autoplay.stop());
-    el.addEventListener("mouseleave", () => swiper.autoplay.start());
-  </script>
 </body>
 </html>

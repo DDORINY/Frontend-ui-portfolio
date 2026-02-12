@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tokens v2 - UI Kit</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+
+  <style>
+    .shell{ max-width:1100px; margin:0 auto; }
+    .surface{ background:#fff; border:1px solid var(--border); border-radius:18px; box-shadow:var(--shadow); }
+    .tag{ display:inline-flex; align-items:center; gap:.35rem; padding:.25rem .6rem; border-radius:999px; border:1px solid var(--border); background:#fff; font-size:.85rem; color:#334155; }
+    .code{ font-family: var(--font-mono); font-size:.92rem; background:rgba(15,23,42,.04); border:1px solid var(--border); border-radius:12px; padding:12px; overflow:auto; white-space:pre; }
+    .grid{ display:grid; grid-template-columns: 1fr; gap:12px; }
+    @media (min-width: 992px){ .grid{ grid-template-columns: 1fr 1fr; } }
+
+    .swatch{
+      border:1px solid rgba(15,23,42,.10);
+      border-radius: 16px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow: var(--shadow);
+    }
+    .swatch .top{ height:72px; }
+    .swatch .meta{ padding:12px; }
+    .k{ font-family: var(--font-mono); font-size:.9rem; color: rgba(15,23,42,.8); }
+    .v{ font-family: var(--font-mono); font-size:.9rem; color: rgba(15,23,42,.65); }
+
+    .token-row{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 12px;
+      border:1px solid rgba(15,23,42,.08);
+      border-radius: 14px;
+      background:#fff;
+      align-items:center;
+    }
+    .token-row + .token-row{ margin-top:8px; }
+
+    .demo-box{
+      border:1px dashed rgba(15,23,42,.18);
+      border-radius: 16px;
+      background: rgba(15,23,42,.02);
+      padding: 14px;
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+  <div class="container py-4 shell">
+
+    <!-- Header -->
+    <div class="surface p-3 p-md-4 mb-4">
+      <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
+        <div>
+          <div class="d-flex flex-wrap gap-2 mb-2">
+            <span class="tag"><i class="bi bi-journal-text"></i> UI Kit</span>
+            <span class="tag"><i class="bi bi-folder2-open"></i> Section: Foundations</span>
+            <span class="tag"><i class="bi bi-stars"></i> v2</span>
+          </div>
+          <h1 class="h4 fw-bold mb-1">Tokens v2</h1>
+          <div class="text-muted">확장 토큰(Spacing/Radius) + Theme Variant + Dark Mode 전략</div>
+        </div>
+
+        <div class="d-flex gap-2 flex-wrap align-items-center">
+          <a class="btn btn-outline-secondary rounded-pill" href="../index.html"><i class="bi bi-box-arrow-left me-1"></i> Back</a>
+          <a class="btn btn-outline-dark rounded-pill" href="../../index.html"><i class="bi bi-house me-1"></i> Home</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="surface p-4">
+      <!-- v2 Changes -->
+      <div class="alert alert-info mb-4">
+        <div class="fw-bold mb-1">v2 Changes</div>
+        <ul class="mb-0">
+          <li>Spacing / Radius 토큰을 더 촘촘하게 확장(레이아웃 미세 조정)</li>
+          <li>Theme Variant(예: Ocean / Grape) 구조 제안</li>
+          <li>Dark Mode는 <b>토큰만</b> 교체하는 전략으로 설계</li>
+        </ul>
+      </div>
+
+      <!-- 1) Extended spacing -->
+      <h2 class="h6 fw-bold mb-2">1) Extended Spacing Tokens</h2>
+      <div class="row g-3 mb-3">
+        <div class="col-12 col-lg-6">
+          <div class="demo-box">
+            <div class="fw-bold mb-2">권장 추가 토큰(예시)</div>
+            <div class="token-row">
+              <div class="k">--s-0</div><div class="v">2px</div>
+            </div>
+            <div class="token-row">
+              <div class="k">--s-7</div><div class="v">28px</div>
+            </div>
+            <div class="token-row">
+              <div class="k">--s-8</div><div class="v">32px</div>
+            </div>
+            <div class="token-row">
+              <div class="k">--s-9</div><div class="v">40px</div>
+            </div>
+            <div class="text-muted mt-2" style="font-size:.92rem;">
+              v1(4~24px)로 충분하면 유지, 레이아웃이 빡빡하면 v2에서 확장.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="demo-box">
+            <div class="fw-bold mb-2">사용 예시</div>
+            <div class="text-muted mb-2" style="font-size:.92rem;">
+              spacing 토큰을 CSS 변수로 쓰면 “디자인 룰”이 유지됨.
+            </div>
+            <div class="code">/* 예시: 카드 패딩 표준화 */
+.card-soft{
+  padding: var(--s-6); /* 24px */
+}
+
+/* 예시: 좁은 카드 */
+.card-compact{
+  padding: var(--s-4); /* 16px */
+}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hr-soft"></div>
+
+      <!-- 2) Extended radius -->
+      <h2 class="h6 fw-bold mb-2">2) Extended Radius Tokens</h2>
+      <div class="row g-3 mb-3">
+        <div class="col-12 col-lg-6">
+          <div class="demo-box">
+            <div class="fw-bold mb-2">권장 추가 토큰(예시)</div>
+            <div class="token-row"><div class="k">--r-xs</div><div class="v">8px</div></div>
+            <div class="token-row"><div class="k">--r-2xl</div><div class="v">32px</div></div>
+            <div class="token-row"><div class="k">--r-pill</div><div class="v">999px</div></div>
+            <div class="text-muted mt-2" style="font-size:.92rem;">
+              v2부터 “pill”은 별도 토큰으로 명시하면 버튼/칩/탑바가 일관됨.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="demo-box">
+            <div class="fw-bold mb-2">사용 예시</div>
+            <div class="code">/* 예시: pill 컴포넌트 표준 */
+.chip, .btn.rounded-pill{
+  border-radius: var(--r-pill);
+}
+
+/* 예시: 큰 카드 변형 */
+.card-elevated{
+  border-radius: var(--r-2xl);
+}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hr-soft"></div>
+
+      <!-- 3) Theme variants -->
+      <h2 class="h6 fw-bold mb-2">3) Theme Variant Strategy</h2>
+      <div class="text-muted mb-3" style="font-size:.92rem;">
+        v2에서는 <b>theme.css는 토큰만</b> 유지하면서, 변형 테마는 별도 파일로 분리하는 방식이 깔끔함.
+        (예: <span class="chip">theme-ocean.css</span>, <span class="chip">theme-grape.css</span>)
+      </div>
+
+      <div class="grid mb-3">
+        <div class="swatch">
+          <div class="top" style="background:#2563eb;"></div>
+          <div class="meta">
+            <div class="fw-bold">Ocean (Default)</div>
+            <div class="text-muted" style="font-size:.9rem;">현재 theme.css의 brand</div>
+            <div class="mt-2">
+              <div class="k">--brand</div> <span class="v">#2563eb</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="swatch">
+          <div class="top" style="background:#7c3aed;"></div>
+          <div class="meta">
+            <div class="fw-bold">Grape (Variant)</div>
+            <div class="text-muted" style="font-size:.9rem;">보라 계열 변형 예시</div>
+            <div class="mt-2">
+              <div class="k">--brand</div> <span class="v">#7c3aed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code mb-3">/* theme-grape.css (예시) */
+:root{
+  --brand: #7c3aed;
+  --brand-600: #6d28d9;
+  --brand-50: #f5f3ff;
+}</div>
+
+      <div class="hr-soft"></div>
+
+      <!-- 4) Dark mode -->
+      <h2 class="h6 fw-bold mb-2">4) Dark Mode Strategy</h2>
+      <div class="text-muted mb-2" style="font-size:.92rem;">
+        다크모드는 “컴포넌트 코드를 바꾸는 게 아니라” <b>토큰만</b> 바꾸는 게 핵심.
+        v2에서는 아래처럼 <code>data-theme="dark"</code>로 토큰만 오버라이드 권장.
+      </div>
+
+      <div class="code">/* theme-dark.css (예시) */
+:root[data-theme="dark"]{
+  --bg: #0b1220;
+  --surface: rgba(255,255,255,.06);
+  --text: #e5e7eb;
+  --muted: rgba(229,231,235,.72);
+
+  --border: rgba(229,231,235,.12);
+  --border-strong: rgba(229,231,235,.20);
+
+  --shadow: 0 12px 30px rgba(0,0,0,.35);
+  --shadow-lg: 0 18px 40px rgba(0,0,0,.45);
+
+  --brand-50: rgba(37,99,235,.12);
+}</div>
+
+      <div class="demo-box mt-3">
+        <div class="fw-bold mb-2">토글 예시(개념)</div>
+        <div class="code">/* JS 예시 */
+document.documentElement.dataset.theme =
+  document.documentElement.dataset.theme === "dark" ? "" : "dark";</div>
+        <div class="text-muted" style="font-size:.92rem;">
+          UI Kit 문서에선 JS를 꼭 넣을 필요는 없고, “전략”을 문서화만 해도 충분.
+        </div>
+      </div>
+
+      <div class="hr-soft"></div>
+
+      <!-- Usage -->
+      <h2 class="h6 fw-bold">Usage</h2>
+      <div class="code">&lt;!-- 기본 --&gt;
+&lt;link rel="stylesheet" href="assets/css/theme.css"&gt;
+&lt;link rel="stylesheet" href="assets/css/components.css"&gt;
+
+&lt;!-- 변형 테마(선택) --&gt;
+&lt;link rel="stylesheet" href="assets/css/theme-grape.css"&gt;
+
+&lt;!-- 다크 모드(선택) --&gt;
+&lt;link rel="stylesheet" href="assets/css/theme-dark.css"&gt;</div>
+
+      <div class="hr-soft"></div>
+
+      <h2 class="h6 fw-bold">Guidelines</h2>
+      <ul class="text-muted mb-0">
+        <li><b>theme.css</b>는 “토큰만” 유지(컴포넌트 스타일 넣지 않기)</li>
+        <li>Variant/Dark는 별도 파일로 분리해서 “선택 로딩” 가능하게</li>
+        <li>프로젝트 규모 커지면 토큰 표를 마크다운/스프레드시트로 관리해도 좋음</li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>

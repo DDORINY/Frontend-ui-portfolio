@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Board Detail v1 - DDORINY</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/pages/board.css">
+
+  <script defer src="../../assets/js/main.js"></script>
+
+  <style>
+    .shell{ max-width:1000px; margin:0 auto; }
+    .page-head{ background:#fff; border:1px solid var(--border); border-radius:18px; box-shadow:var(--shadow); }
+    .tag{ display:inline-flex; align-items:center; gap:.35rem; padding:.25rem .6rem; border-radius:999px; border:1px solid var(--border); background:#fff; font-size:.85rem; color:#334155; }
+  </style>
+</head>
+
+<body class="bg-light">
+  <div class="container py-4 shell">
+
+    <div class="page-head p-3 p-md-4 mb-4">
+      <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3">
+        <div>
+          <div class="d-flex flex-wrap gap-2 mb-2">
+            <span class="tag"><i class="bi bi-folder2-open"></i> Category: Board</span>
+            <span class="tag"><i class="bi bi-hash"></i> Version: v1</span>
+            <span class="tag"><i class="bi bi-file-earmark-text"></i> Detail</span>
+          </div>
+          <h1 class="h4 fw-bold mb-1">Board Detail v1</h1>
+          <div class="text-muted">본문 + 첨부 + 댓글/대댓글 UI</div>
+        </div>
+
+        <div class="d-flex gap-2">
+          <a class="btn btn-outline-secondary rounded-pill" href="../../index.html">
+            <i class="bi bi-box-arrow-left me-1"></i> Back to Portfolio
+          </a>
+          <a class="btn btn-outline-dark rounded-pill" href="./board-list-v1.html">
+            <i class="bi bi-list me-1"></i> List
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="surface p-3 p-md-4 mb-3">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-2">
+        <div class="d-flex gap-2 flex-wrap">
+          <span class="chip"><i class="bi bi-chat-dots"></i> 자유</span>
+          <span class="chip"><i class="bi bi-hash"></i> #python</span>
+          <span class="chip"><i class="bi bi-hash"></i> #flask</span>
+        </div>
+        <div class="text-muted" style="font-size:.95rem;">
+          작성자 <b>kim</b> · 2026-02-12 · 조회 <b>98</b>
+        </div>
+      </div>
+
+      <h2 class="h5 fw-bold mb-3">오늘 스터디 내용 정리</h2>
+
+      <div class="board-content text-muted">
+        <p>이 페이지는 게시글 상세 UI 템플릿입니다.</p>
+        <ul>
+          <li>텍스트 본문</li>
+          <li>링크/영상 영역</li>
+          <li>이미지/첨부파일 영역</li>
+          <li>댓글/대댓글</li>
+        </ul>
+
+        <div class="ratio ratio-16x9 my-3">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="video demo" allowfullscreen></iframe>
+        </div>
+
+        <img class="img-fluid rounded-4 border" style="border-color:var(--border)!important;"
+             src="https://picsum.photos/seed/ddoriny/1200/700" alt="demo">
+      </div>
+
+      <div class="board-attachments mt-3">
+        <div class="fw-bold mb-2">첨부파일</div>
+        <div class="d-flex flex-column gap-1">
+          <a href="#" class="text-decoration-none"><i class="bi bi-paperclip"></i> report.pdf</a>
+          <a href="#" class="text-decoration-none"><i class="bi bi-paperclip"></i> source.zip</a>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mt-4">
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-brand">
+            <i class="bi bi-hand-thumbs-up me-1"></i> 좋아요 <b>12</b>
+          </button>
+          <button class="btn btn-outline-secondary">
+            <i class="bi bi-share me-1"></i> 공유
+          </button>
+        </div>
+
+        <div class="d-flex gap-2">
+          <a class="btn btn-outline-secondary" href="./board-write-v1.html">
+            <i class="bi bi-pencil me-1"></i> 수정
+          </a>
+          <button class="btn btn-outline-danger">
+            <i class="bi bi-trash me-1"></i> 삭제
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comments -->
+    <div class="surface p-3 p-md-4">
+      <div class="fw-bold mb-2">댓글</div>
+
+      <form class="mb-3">
+        <div class="input-group">
+          <input class="form-control" placeholder="댓글을 입력하세요">
+          <button class="btn btn-brand">등록</button>
+        </div>
+      </form>
+
+      <div class="comment-item">
+        <div class="d-flex justify-content-between">
+          <div class="fw-bold">lee <span class="text-muted fw-normal ms-2" style="font-size:.9rem;">2026-02-12</span></div>
+          <button class="btn btn-sm btn-outline-secondary">답글</button>
+        </div>
+        <div class="text-muted mt-2">댓글 예시입니다.</div>
+
+        <div class="reply mt-3">
+          <div class="d-flex justify-content-between">
+            <div class="fw-bold">admin <span class="text-muted fw-normal ms-2" style="font-size:.9rem;">2026-02-12</span></div>
+            <button class="btn btn-sm btn-outline-secondary">답글</button>
+          </div>
+          <div class="text-muted mt-2">대댓글 예시입니다.</div>
+        </div>
+      </div>
+
+      <div class="comment-item">
+        <div class="d-flex justify-content-between">
+          <div class="fw-bold">kim <span class="text-muted fw-normal ms-2" style="font-size:.9rem;">2026-02-11</span></div>
+          <button class="btn btn-sm btn-outline-secondary">답글</button>
+        </div>
+        <div class="text-muted mt-2">두 번째 댓글 예시입니다.</div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

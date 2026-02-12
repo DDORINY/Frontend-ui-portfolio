@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shop v1 - DDORINY</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/theme.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/pages/shop.css">
+
+  <script defer src="../../assets/js/main.js"></script>
+
+  <style>
+    .shell{ max-width:1200px; margin:0 auto; }
+    .page-head{ background:#fff; border:1px solid var(--border); border-radius:18px; box-shadow:var(--shadow); }
+    .tag{ display:inline-flex; align-items:center; gap:.35rem; padding:.25rem .6rem; border-radius:999px; border:1px solid var(--border); background:#fff; font-size:.85rem; color:#334155; }
+    .product-card{ border:1px solid var(--border); border-radius:18px; overflow:hidden; background:#fff; box-shadow:var(--shadow); }
+    .product-card .body{ padding:12px; }
+  </style>
+</head>
+
+<body class="bg-light">
+  <div class="container py-4 shell">
+
+    <div class="page-head p-3 p-md-4 mb-4">
+      <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3">
+        <div>
+          <div class="d-flex flex-wrap gap-2 mb-2">
+            <span class="tag"><i class="bi bi-folder2-open"></i> Category: Shop</span>
+            <span class="tag"><i class="bi bi-hash"></i> Version: v1</span>
+            <span class="tag"><i class="bi bi-grid-3x3-gap"></i> Grid</span>
+          </div>
+          <h1 class="h4 fw-bold mb-1">Shop v1</h1>
+          <div class="text-muted">상품 그리드 + 필터/정렬 UI</div>
+        </div>
+
+        <div class="d-flex gap-2">
+          <a class="btn btn-outline-secondary rounded-pill" href="../../index.html">
+            <i class="bi bi-box-arrow-left me-1"></i> Back to Portfolio
+          </a>
+          <a class="btn btn-outline-dark rounded-pill" href="../../ui-kit/index.html">
+            <i class="bi bi-journal-text me-1"></i> UI Kit
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="surface p-3 p-md-4 mb-3">
+      <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+        <div class="fw-bold">Products</div>
+        <div class="d-flex gap-2 flex-wrap">
+          <div class="input-group" style="max-width:340px;">
+            <span class="input-group-text"><i class="bi bi-search"></i></span>
+            <input class="form-control" placeholder="상품 검색">
+          </div>
+          <select class="form-select" style="max-width:180px;">
+            <option>정렬: 최신</option>
+            <option>정렬: 인기</option>
+            <option>정렬: 낮은가격</option>
+            <option>정렬: 높은가격</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-grid">
+      <!-- Card 1 -->
+      <div class="product-card">
+        <img src="https://picsum.photos/seed/p1/900/650" alt="p1">
+        <div class="body">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-bold">Product A</div>
+              <div class="text-muted" style="font-size:.9rem;">간단한 상품 설명</div>
+            </div>
+            <span class="chip"><i class="bi bi-star-fill"></i> 4.8</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mt-2">
+            <div class="fw-bold">₩ 29,000</div>
+            <button class="btn btn-sm btn-brand"><i class="bi bi-cart-plus me-1"></i>담기</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="product-card">
+        <img src="https://picsum.photos/seed/p2/900/650" alt="p2">
+        <div class="body">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-bold">Product B</div>
+              <div class="text-muted" style="font-size:.9rem;">간단한 상품 설명</div>
+            </div>
+            <span class="chip"><i class="bi bi-star-fill"></i> 4.6</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mt-2">
+            <div class="fw-bold">₩ 19,000</div>
+            <button class="btn btn-sm btn-brand"><i class="bi bi-cart-plus me-1"></i>담기</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="product-card">
+        <img src="https://picsum.photos/seed/p3/900/650" alt="p3">
+        <div class="body">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-bold">Product C</div>
+              <div class="text-muted" style="font-size:.9rem;">간단한 상품 설명</div>
+            </div>
+            <span class="chip"><i class="bi bi-star-fill"></i> 4.9</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mt-2">
+            <div class="fw-bold">₩ 49,000</div>
+            <button class="btn btn-sm btn-brand"><i class="bi bi-cart-plus me-1"></i>담기</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="product-card">
+        <img src="https://picsum.photos/seed/p4/900/650" alt="p4">
+        <div class="body">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-bold">Product D</div>
+              <div class="text-muted" style="font-size:.9rem;">간단한 상품 설명</div>
+            </div>
+            <span class="chip"><i class="bi bi-star-fill"></i> 4.7</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mt-2">
+            <div class="fw-bold">₩ 39,000</div>
+            <button class="btn btn-sm btn-brand"><i class="bi bi-cart-plus me-1"></i>담기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="d-flex justify-content-center mt-4">
+      <ul class="pagination mb-0">
+        <li class="page-item disabled"><a class="page-link" href="#">Prev</a></li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</body>
+</html>
